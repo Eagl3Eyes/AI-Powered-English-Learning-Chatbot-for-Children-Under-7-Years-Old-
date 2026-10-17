@@ -1,0 +1,24 @@
+{
+  "name": "ai-english-learning-chatbot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-Powered English Learning Chatbot for Children Under 7 Years Old",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:api": "npm run dev --workspace=apps/api",
+    "dev:web": "npm run dev --workspace=apps/web",
+    "build": "npm run build --workspace=packages/shared && npm run build --workspace=apps/api && npm run build --workspace=apps/web",
+    "test": "npm run test --workspace=apps/api",
+    "benchmark": "npx tsx scripts/benchmark/latency_benchmark.ts",
+    "start": "node apps/api/dist/server.js"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3"
+  }
+}

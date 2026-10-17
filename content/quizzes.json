@@ -1,0 +1,570 @@
+[
+  {
+    "id": "q_l1_01",
+    "level": 1,
+    "skillId": "colors",
+    "type": "quiz",
+    "title": "Sun Color",
+    "question": "What color is the bright sun?",
+    "promptAudioText": "What color is the bright sun?",
+    "emoji": "☀️",
+    "choices": [
+      { "id": "c1", "text": "Yellow", "emoji": "💛" },
+      { "id": "c2", "text": "Blue", "emoji": "💙" }
+    ],
+    "correctAnswer": "Yellow",
+    "hint": "Think of ripe bananas and the warm sunshine!",
+    "explanation": "Great job! The sun shines with a bright yellow light!"
+  },
+  {
+    "id": "q_l1_02",
+    "level": 1,
+    "skillId": "colors",
+    "type": "quiz",
+    "title": "Apple Color",
+    "question": "What color is this sweet strawberry?",
+    "promptAudioText": "What color is this sweet strawberry?",
+    "emoji": "🍓",
+    "choices": [
+      { "id": "c1", "text": "Red", "emoji": "❤️" },
+      { "id": "c2", "text": "Green", "emoji": "💚" }
+    ],
+    "correctAnswer": "Red",
+    "hint": "Strawberries are red like a shiny fire truck!",
+    "explanation": "Hooray! The strawberry is bright red!"
+  },
+  {
+    "id": "q_l1_03",
+    "level": 1,
+    "skillId": "animals",
+    "type": "quiz",
+    "title": "Cat Sound",
+    "question": "Which animal says 'Meow'?",
+    "promptAudioText": "Which animal says 'Meow'?",
+    "emoji": "🐾",
+    "choices": [
+      { "id": "c1", "text": "Cat", "emoji": "🐱" },
+      { "id": "c2", "text": "Dog", "emoji": "🐶" }
+    ],
+    "correctAnswer": "Cat",
+    "hint": "It purrs when happy and loves to chase string!",
+    "explanation": "Purr-fect! A cute cat says meow!"
+  },
+  {
+    "id": "q_l1_04",
+    "level": 1,
+    "skillId": "numbers",
+    "type": "quiz",
+    "title": "Counting Stars",
+    "question": "How many stars do you see? ⭐ ⭐",
+    "promptAudioText": "How many stars do you see?",
+    "emoji": "✨",
+    "choices": [
+      { "id": "c1", "text": "Two", "emoji": "2️⃣" },
+      { "id": "c2", "text": "One", "emoji": "1️⃣" }
+    ],
+    "correctAnswer": "Two",
+    "hint": "Count them: one... two!",
+    "explanation": "Spot on! There are two shining stars!"
+  },
+  {
+    "id": "q_l1_05",
+    "level": 1,
+    "skillId": "greetings",
+    "type": "quiz",
+    "title": "Polite Word",
+    "question": "When someone gives you a gift, what do you say?",
+    "promptAudioText": "When someone gives you a gift, what do you say?",
+    "emoji": "🎁",
+    "choices": [
+      { "id": "c1", "text": "Thank you", "emoji": "💖" },
+      { "id": "c2", "text": "Goodbye", "emoji": "👋" }
+    ],
+    "correctAnswer": "Thank you",
+    "hint": "Saying thank you shows a kind and grateful heart!",
+    "explanation": "Wonderful! We say thank you to be polite and sweet!"
+  },
+  {
+    "id": "q_l1_06",
+    "level": 1,
+    "skillId": "objects",
+    "type": "quiz",
+    "title": "Bouncing Toy",
+    "question": "Which toy bounces on the playground?",
+    "promptAudioText": "Which toy bounces on the playground?",
+    "emoji": "🏀",
+    "choices": [
+      { "id": "c1", "text": "Ball", "emoji": "⚽" },
+      { "id": "c2", "text": "Book", "emoji": "📖" }
+    ],
+    "correctAnswer": "Ball",
+    "hint": "It is round and rolls on the floor!",
+    "explanation": "Boing boing! A ball bounces nice and high!"
+  },
+  {
+    "id": "q_l1_07",
+    "level": 1,
+    "skillId": "colors",
+    "type": "quiz",
+    "title": "Sky Color",
+    "question": "What color is the open sky on a clear day?",
+    "promptAudioText": "What color is the open sky on a clear day?",
+    "emoji": "☁️",
+    "choices": [
+      { "id": "c1", "text": "Blue", "emoji": "💙" },
+      { "id": "c2", "text": "Yellow", "emoji": "💛" },
+      { "id": "c3", "text": "Red", "emoji": "❤️" }
+    ],
+    "correctAnswer": "Blue",
+    "hint": "Look up outside or at the ocean water!",
+    "explanation": "Super job! The clear sky is a lovely blue!"
+  },
+  {
+    "id": "q_l1_08",
+    "level": 1,
+    "skillId": "numbers",
+    "type": "quiz",
+    "title": "Three Kittens",
+    "question": "Count the kittens: 🐱 🐱 🐱. How many?",
+    "promptAudioText": "Count the kittens: How many?",
+    "emoji": "🐱",
+    "choices": [
+      { "id": "c1", "text": "Three", "emoji": "3️⃣" },
+      { "id": "c2", "text": "Two", "emoji": "2️⃣" },
+      { "id": "c3", "text": "Four", "emoji": "4️⃣" }
+    ],
+    "correctAnswer": "Three",
+    "hint": "Touch each kitten: one, two, three!",
+    "explanation": "Yay! There are three playful kittens!"
+  },
+  {
+    "id": "q_l1_09",
+    "level": 1,
+    "skillId": "greetings",
+    "type": "quiz",
+    "title": "Morning Greeting",
+    "question": "What do we say when meeting a new friend?",
+    "promptAudioText": "What do we say when meeting a new friend?",
+    "emoji": "🤝",
+    "choices": [
+      { "id": "c1", "text": "Hello", "emoji": "👋" },
+      { "id": "c2", "text": "Sleep", "emoji": "💤" }
+    ],
+    "correctAnswer": "Hello",
+    "hint": "Wave your hand and smile!",
+    "explanation": "Hello friend! That is the perfect way to begin!"
+  },
+  {
+    "id": "q_l1_10",
+    "level": 1,
+    "skillId": "objects",
+    "type": "quiz",
+    "title": "Story Time",
+    "question": "What do we open to read fairy tales and stories?",
+    "promptAudioText": "What do we open to read fairy tales and stories?",
+    "emoji": "📚",
+    "choices": [
+      { "id": "c1", "text": "Book", "emoji": "📖" },
+      { "id": "c2", "text": "Ball", "emoji": "⚽" }
+    ],
+    "correctAnswer": "Book",
+    "hint": "It has paper pages with pictures and words!",
+    "explanation": "You got it! A book is full of magical stories!"
+  },
+  {
+    "id": "q_l2_01",
+    "level": 2,
+    "skillId": "animals",
+    "type": "quiz",
+    "title": "Animal with Trunk",
+    "question": "Which animal has big floppy ears and a long trunk?",
+    "promptAudioText": "Which animal has big floppy ears and a long trunk?",
+    "emoji": "🐘",
+    "choices": [
+      { "id": "c1", "text": "Elephant", "emoji": "🐘" },
+      { "id": "c2", "text": "Rabbit", "emoji": "🐰" },
+      { "id": "c3", "text": "Butterfly", "emoji": "🦋" }
+    ],
+    "correctAnswer": "Elephant",
+    "hint": "It is the largest gentle animal on land!",
+    "explanation": "Fantastic! An elephant sprays water with its trunk!"
+  },
+  {
+    "id": "q_l2_02",
+    "level": 2,
+    "skillId": "actions",
+    "type": "quiz",
+    "title": "Action Verb",
+    "question": "Leo is in his cozy bed with his eyes shut. What is he doing?",
+    "promptAudioText": "Leo is in his cozy bed with his eyes shut. What is he doing?",
+    "emoji": "🛏️",
+    "choices": [
+      { "id": "c1", "text": "Sleeping", "emoji": "😴" },
+      { "id": "c2", "text": "Dancing", "emoji": "💃" },
+      { "id": "c3", "text": "Running", "emoji": "🏃" }
+    ],
+    "correctAnswer": "Sleeping",
+    "hint": "When night falls, we close our eyes to rest and dream.",
+    "explanation": "Spot on! Leo is sleeping soundly!"
+  },
+  {
+    "id": "q_l2_03",
+    "level": 2,
+    "skillId": "weather",
+    "type": "quiz",
+    "title": "Rainy Weather",
+    "question": "Water is falling from grey clouds. What kind of day is it?",
+    "promptAudioText": "Water is falling from grey clouds. What kind of day is it?",
+    "emoji": "🌧️",
+    "choices": [
+      { "id": "c1", "text": "Rainy", "emoji": "🌧️" },
+      { "id": "c2", "text": "Sunny", "emoji": "☀️" },
+      { "id": "c3", "text": "Windy", "emoji": "💨" }
+    ],
+    "correctAnswer": "Rainy",
+    "hint": "Pitter-patter raindrops! Grab your umbrella!",
+    "explanation": "Splash! It is a rainy day!"
+  },
+  {
+    "id": "q_l2_04",
+    "level": 2,
+    "skillId": "food",
+    "type": "quiz",
+    "title": "Healthy Fruit",
+    "question": "Which yellow fruit can you peel and eat?",
+    "promptAudioText": "Which yellow fruit can you peel and eat?",
+    "emoji": "🍌",
+    "choices": [
+      { "id": "c1", "text": "Banana", "emoji": "🍌" },
+      { "id": "c2", "text": "Bread", "emoji": "🍞" },
+      { "id": "c3", "text": "Water", "emoji": "💧" }
+    ],
+    "correctAnswer": "Banana",
+    "hint": "Monkeys love this sweet curved yellow fruit!",
+    "explanation": "Yum! Bananas are tasty and give you lots of energy!"
+  },
+  {
+    "id": "q_l2_05",
+    "level": 2,
+    "skillId": "numbers",
+    "type": "quiz",
+    "title": "Counting Fingers",
+    "question": "If you hold up both hands, how many fingers do you have in all?",
+    "promptAudioText": "If you hold up both hands, how many fingers do you have in all?",
+    "emoji": "🙌",
+    "choices": [
+      { "id": "c1", "text": "Ten", "emoji": "🔟" },
+      { "id": "c2", "text": "Five", "emoji": "5️⃣" },
+      { "id": "c3", "text": "Twenty", "emoji": "2️⃣0️⃣" }
+    ],
+    "correctAnswer": "Ten",
+    "hint": "Five fingers on your left hand, and five on your right!",
+    "explanation": "Five plus five equals ten fingers! High ten!"
+  },
+  {
+    "id": "q_l2_06",
+    "level": 2,
+    "skillId": "family",
+    "type": "quiz",
+    "title": "Family Member",
+    "question": "Your father's mother is your sweet...",
+    "promptAudioText": "Your father's mother is your sweet...",
+    "emoji": "👵",
+    "choices": [
+      { "id": "c1", "text": "Grandma", "emoji": "👵" },
+      { "id": "c2", "text": "Brother", "emoji": "👦" },
+      { "id": "c3", "text": "Sister", "emoji": "👧" }
+    ],
+    "correctAnswer": "Grandma",
+    "hint": "She gives the warmest hugs and tells great stories!",
+    "explanation": "That's right! Grandma loves you so much!"
+  },
+  {
+    "id": "q_l2_07",
+    "level": 2,
+    "skillId": "actions",
+    "type": "quiz",
+    "title": "Fast Movement",
+    "question": "Emma moves her legs swiftly across the soccer field. She is...",
+    "promptAudioText": "Emma moves her legs swiftly across the soccer field. She is...",
+    "emoji": "🏃‍♀️",
+    "choices": [
+      { "id": "c1", "text": "Running", "emoji": "🏃‍♀️" },
+      { "id": "c2", "text": "Sleeping", "emoji": "😴" },
+      { "id": "c3", "text": "Sitting", "emoji": "🪑" }
+    ],
+    "correctAnswer": "Running",
+    "hint": "It is faster than walking!",
+    "explanation": "Zoom! Emma is running fast!"
+  },
+  {
+    "id": "q_l2_08",
+    "level": 2,
+    "skillId": "animals",
+    "type": "quiz",
+    "title": "Flapping Wings",
+    "question": "Which delicate friend flutters between flowers?",
+    "promptAudioText": "Which delicate friend flutters between flowers?",
+    "emoji": "🌸",
+    "choices": [
+      { "id": "c1", "text": "Butterfly", "emoji": "🦋" },
+      { "id": "c2", "text": "Elephant", "emoji": "🐘" },
+      { "id": "c3", "text": "Dog", "emoji": "🐶" }
+    ],
+    "correctAnswer": "Butterfly",
+    "hint": "It has colorful patterned wings that flutter gently.",
+    "explanation": "Brilliant! The butterfly loves colorful blossoms!"
+  },
+  {
+    "id": "q_l2_09",
+    "level": 2,
+    "skillId": "weather",
+    "type": "quiz",
+    "title": "Flying Kites",
+    "question": "Which weather helps our kite fly high in the air?",
+    "promptAudioText": "Which weather helps our kite fly high in the air?",
+    "emoji": "🪁",
+    "choices": [
+      { "id": "c1", "text": "Windy", "emoji": "💨" },
+      { "id": "c2", "text": "Rainy", "emoji": "🌧️" },
+      { "id": "c3", "text": "Dark", "emoji": "🌑" }
+    ],
+    "correctAnswer": "Windy",
+    "hint": "Blowing breezes lift the kite up!",
+    "explanation": "Whoosh! The wind lifts the kite up to the clouds!"
+  },
+  {
+    "id": "q_l2_10",
+    "level": 2,
+    "skillId": "food",
+    "type": "quiz",
+    "title": "Breakfast Food",
+    "question": "Which food do we slice and toast for breakfast?",
+    "promptAudioText": "Which food do we slice and toast for breakfast?",
+    "emoji": "🍞",
+    "choices": [
+      { "id": "c1", "text": "Bread", "emoji": "🍞" },
+      { "id": "c2", "text": "Water", "emoji": "💧" },
+      { "id": "c3", "text": "Grass", "emoji": "🌱" }
+    ],
+    "correctAnswer": "Bread",
+    "hint": "Warm slices come from the bakery!",
+    "explanation": "Delicious! Toast bread is wonderful in the morning!"
+  },
+  {
+    "id": "q_l3_01",
+    "level": 3,
+    "skillId": "story_comprehension",
+    "type": "quiz",
+    "title": "Ball Sharing Story",
+    "question": "Mia has a red ball. She gives it to Sam. Who has the ball now?",
+    "promptAudioText": "Mia has a red ball. She gives it to Sam. Who has the ball now?",
+    "emoji": "🔴",
+    "choices": [
+      { "id": "c1", "text": "Sam", "emoji": "👦" },
+      { "id": "c2", "text": "Mia", "emoji": "👧" },
+      { "id": "c3", "text": "The dog", "emoji": "🐶" }
+    ],
+    "correctAnswer": "Sam",
+    "hint": "Mia gave it to Sam, so Sam is holding it!",
+    "explanation": "Super listening! Mia shared her ball with Sam, so Sam has it now!"
+  },
+  {
+    "id": "q_l3_02",
+    "level": 3,
+    "skillId": "story_comprehension",
+    "type": "quiz",
+    "title": "Puppy in the Rain",
+    "question": "Ben took his dog Buster for a walk. When it began to rain, they both ran inside. Why did they run?",
+    "promptAudioText": "Why did Ben and Buster run inside?",
+    "emoji": "☔",
+    "choices": [
+      { "id": "c1", "text": "To stay dry from the rain", "emoji": "🏠" },
+      { "id": "c2", "text": "To find more rain", "emoji": "🌧️" },
+      { "id": "c3", "text": "To play in the mud", "emoji": "🐾" }
+    ],
+    "correctAnswer": "To stay dry from the rain",
+    "hint": "Rain makes clothes and fur wet!",
+    "explanation": "Smart thinking! Running inside kept them nice and dry!"
+  },
+  {
+    "id": "q_l3_03",
+    "level": 3,
+    "skillId": "sequencing",
+    "type": "quiz",
+    "title": "Bedtime Routine",
+    "question": "What should you do BEFORE you go to sleep in bed?",
+    "promptAudioText": "What should you do BEFORE you go to sleep in bed?",
+    "emoji": "🪥",
+    "choices": [
+      { "id": "c1", "text": "Brush your teeth", "emoji": "🪥" },
+      { "id": "c2", "text": "Run outside in the mud", "emoji": "🏃" },
+      { "id": "c3", "text": "Eat a big dinner again", "emoji": "🍽️" }
+    ],
+    "correctAnswer": "Brush your teeth",
+    "hint": "Keep your teeth clean and shiny before sleeping!",
+    "explanation": "Spot on! Brushing our teeth keeps our smile healthy and bright!"
+  },
+  {
+    "id": "q_l3_04",
+    "level": 3,
+    "skillId": "social_communication",
+    "type": "quiz",
+    "title": "Asking for Help",
+    "question": "You want a toy on a high shelf that you cannot reach. What is the best thing to say?",
+    "promptAudioText": "What is the best thing to say when a toy is too high?",
+    "emoji": "🙋",
+    "choices": [
+      { "id": "c1", "text": "Please help me reach that, Dad.", "emoji": "🗣️" },
+      { "id": "c2", "text": "Cry quietly in the corner.", "emoji": "😢" },
+      { "id": "c3", "text": "Throw another toy at the shelf.", "emoji": "💥" }
+    ],
+    "correctAnswer": "Please help me reach that, Dad.",
+    "hint": "Using our kind words and asking a grown-up is safe!",
+    "explanation": "Wonderful! Asking politely gets us help safely every time!"
+  },
+  {
+    "id": "q_l3_05",
+    "level": 3,
+    "skillId": "descriptive_words",
+    "type": "quiz",
+    "title": "Curious Explorer",
+    "question": "When someone wants to discover new things and asks good questions, they are...",
+    "promptAudioText": "When someone wants to discover new things and asks good questions, they are...",
+    "emoji": "🔍",
+    "choices": [
+      { "id": "c1", "text": "Curious", "emoji": "🧐" },
+      { "id": "c2", "text": "Sleepy", "emoji": "😴" },
+      { "id": "c3", "text": "Noisy", "emoji": "📢" }
+    ],
+    "correctAnswer": "Curious",
+    "hint": "A curious mind loves adventures and books!",
+    "explanation": "You got it! Curiosity helps us learn exciting wonders!"
+  },
+  {
+    "id": "q_l3_06",
+    "level": 3,
+    "skillId": "story_comprehension",
+    "type": "quiz",
+    "title": "Baking Cookies",
+    "question": "Grandma mixed butter and flour, shaped little stars, and put them in the oven. What is Grandma making?",
+    "promptAudioText": "What is Grandma making?",
+    "emoji": "🍪",
+    "choices": [
+      { "id": "c1", "text": "Delicious cookies", "emoji": "🍪" },
+      { "id": "c2", "text": "Cold ice cream", "emoji": "🍦" },
+      { "id": "c3", "text": "A paper kite", "emoji": "🪁" }
+    ],
+    "correctAnswer": "Delicious cookies",
+    "hint": "They bake in the warm oven and smell sweet!",
+    "explanation": "Yum! Grandma is baking delicious star cookies!"
+  },
+  {
+    "id": "q_l3_07",
+    "level": 3,
+    "skillId": "sequencing",
+    "type": "quiz",
+    "title": "Planting a Flower",
+    "question": "Put these in order: Seed, Sprout, Blossom. What comes FIRST?",
+    "promptAudioText": "What comes first when growing a flower?",
+    "emoji": "🌱",
+    "choices": [
+      { "id": "c1", "text": "The little Seed", "emoji": "🌰" },
+      { "id": "c2", "text": "The tall Blossom", "emoji": "🌸" },
+      { "id": "c3", "text": "The green Fruit", "emoji": "🍏" }
+    ],
+    "correctAnswer": "The little Seed",
+    "hint": "We tuck this tiny thing into the soil first!",
+    "explanation": "First comes the seed, then water and sun help it bloom!"
+  },
+  {
+    "id": "q_l3_08",
+    "level": 3,
+    "skillId": "social_communication",
+    "type": "quiz",
+    "title": "Cheering a Friend",
+    "question": "Your friend dropped their ice cream and looks sad. What can you say to comfort them?",
+    "promptAudioText": "What can you say to comfort a sad friend?",
+    "emoji": "🍦",
+    "choices": [
+      { "id": "c1", "text": "It's okay, we can share mine!", "emoji": "🤗" },
+      { "id": "c2", "text": "Ha ha, look at the floor!", "emoji": "😆" },
+      { "id": "c3", "text": "Walk away fast.", "emoji": "🏃" }
+    ],
+    "correctAnswer": "It's okay, we can share mine!",
+    "hint": "True friends care and share kindness!",
+    "explanation": "That is so sweet! Sharing kindness warms every heart!"
+  },
+  {
+    "id": "q_l3_09",
+    "level": 3,
+    "skillId": "descriptive_words",
+    "type": "quiz",
+    "title": "Quiet Places",
+    "question": "Which place is full of books where people whisper quietly?",
+    "promptAudioText": "Which place is full of books where people whisper quietly?",
+    "emoji": "🤫",
+    "choices": [
+      { "id": "c1", "text": "Library", "emoji": "📚" },
+      { "id": "c2", "text": "Amusement park", "emoji": "🎢" },
+      { "id": "c3", "text": "Airport runway", "emoji": "✈️" }
+    ],
+    "correctAnswer": "Library",
+    "hint": "A wonderland where you borrow storybooks!",
+    "explanation": "Correct! The library is a quiet cozy haven for reading!"
+  },
+  {
+    "id": "q_l3_10",
+    "level": 3,
+    "skillId": "story_comprehension",
+    "type": "quiz",
+    "title": "Lost Teddy",
+    "question": "Pip looked under the bed and behind the sofa. At last, he saw Teddy on the big chair! Where was Teddy?",
+    "promptAudioText": "Where did Pip find Teddy?",
+    "emoji": "🧸",
+    "choices": [
+      { "id": "c1", "text": "On the big chair", "emoji": "🪑" },
+      { "id": "c2", "text": "Outside in a tree", "emoji": "🌳" },
+      { "id": "c3", "text": "Inside the bathtub", "emoji": "🛁" }
+    ],
+    "correctAnswer": "On the big chair",
+    "hint": "Check the last sentence: Pip saw Teddy right on the chair!",
+    "explanation": "You're a super detective! Teddy was sitting on the big chair!"
+  },
+  {
+    "id": "q_l3_11",
+    "level": 3,
+    "skillId": "descriptive_words",
+    "type": "quiz",
+    "title": "Opposite Words",
+    "question": "What is the opposite of 'Whisper'?",
+    "promptAudioText": "What is the opposite of 'Whisper'?",
+    "emoji": "🗣️",
+    "choices": [
+      { "id": "c1", "text": "Shout", "emoji": "📢" },
+      { "id": "c2", "text": "Sleep", "emoji": "💤" },
+      { "id": "c3", "text": "Listen", "emoji": "👂" }
+    ],
+    "correctAnswer": "Shout",
+    "hint": "A whisper is very quiet, so the opposite is very loud!",
+    "explanation": "Great thinking! Shout is loud, and whisper is quiet!"
+  },
+  {
+    "id": "q_l3_12",
+    "level": 3,
+    "skillId": "sequencing",
+    "type": "quiz",
+    "title": "Days of the Week",
+    "question": "Today is Friday! What day comes tomorrow for the weekend?",
+    "promptAudioText": "Today is Friday! What day comes tomorrow?",
+    "emoji": "🗓️",
+    "choices": [
+      { "id": "c1", "text": "Saturday", "emoji": "🎉" },
+      { "id": "c2", "text": "Monday", "emoji": "🎒" },
+      { "id": "c3", "text": "Wednesday", "emoji": "🐪" }
+    ],
+    "correctAnswer": "Saturday",
+    "hint": "Friday ends school, and Saturday starts the weekend fun!",
+    "explanation": "Hurrah! Saturday is next, time for weekend playtime!"
+  }
+]

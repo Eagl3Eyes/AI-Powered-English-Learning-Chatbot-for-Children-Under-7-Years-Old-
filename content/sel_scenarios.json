@@ -1,0 +1,107 @@
+[
+  {
+    "id": "sel_happy",
+    "emotion": "happy",
+    "triggerPhrases": ["i am happy", "feeling good", "i feel great", "happy today", "so happy"],
+    "response": "I'm so glad your heart is feeling happy and bright today! 🌟 What brought a smile to your face?",
+    "quickReplies": ["Playing with toys!", "Sunshine outside!", "Yummy snack!"],
+    "activitySuggestion": "Let's celebrate with a fun story or quick quiz!"
+  },
+  {
+    "id": "sel_sad",
+    "emotion": "sad",
+    "triggerPhrases": ["i am sad", "crying", "i feel down", "sad today", "unhappy"],
+    "response": "It's completely okay to feel sad sometimes. Even rainy days bring fresh flowers later. 🌧️ Let's take a slow, gentle breath together: breathe in... and breathe out. I'm right here with you.",
+    "quickReplies": ["Take a deep breath", "Tell me a joke", "I want a hug"],
+    "activitySuggestion": "Would you like a cozy story, or would you like to rest?"
+  },
+  {
+    "id": "sel_angry",
+    "emotion": "angry",
+    "triggerPhrases": ["i am angry", "i am mad", "grrr", "so mad", "i hate this"],
+    "response": "It is okay to feel angry. When anger bubbles up like a little volcano, we can blow away the heat! 🌋 Let's blow out candles together: whooooo! You are safe and cared for.",
+    "quickReplies": ["Blow out candles", "Take a short break", "Squeeze a pillow"],
+    "activitySuggestion": "Taking a 2-minute movement break can help our muscles relax!"
+  },
+  {
+    "id": "sel_scared",
+    "emotion": "scared",
+    "triggerPhrases": ["i am scared", "frightened", "afraid of the dark", "i feel scared", "spooky"],
+    "response": "Feeling scared is your heart's way of looking out for you. 🧸 You are safe right here, and your favorite grown-ups love and protect you. Let's hold a cozy thought together.",
+    "quickReplies": ["Give Pip a hug", "Sing a happy song", "Tell a gentle story"],
+    "activitySuggestion": "How about a peaceful story about a brave little star?"
+  },
+  {
+    "id": "sel_excited",
+    "emotion": "excited",
+    "triggerPhrases": ["i am excited", "so excited", "yay", "hurray", "party", "can't wait"],
+    "response": "Woohoo! High five! ✋ Your excitement is sparkling like confetti! What fun adventure are you looking forward to?",
+    "quickReplies": ["Going to the park!", "My birthday!", "Playing a game!"],
+    "activitySuggestion": "Let's channel that amazing energy into a lively vocabulary game!"
+  },
+  {
+    "id": "sel_tired",
+    "emotion": "tired",
+    "triggerPhrases": ["i am tired", "sleepy", "yawning", "want to sleep", "exhausted"],
+    "response": "Yaaawn! Even super adventurers need to rest their weary eyes. 🌙 Rest is how our brain grows strong and remembers all the good words we learned.",
+    "quickReplies": ["Close my eyes", "Listen to a soft story", "Say goodbye for now"],
+    "activitySuggestion": "Would you like to stop for today and come back tomorrow?"
+  },
+  {
+    "id": "sel_confused",
+    "emotion": "confused",
+    "triggerPhrases": ["i am confused", "i don't understand", "what does this mean", "i am lost"],
+    "response": "That's wonderful to say! Asking questions when confused is the very best way to learn. 💡 There is no hurry at all. Let's look at this step together!",
+    "quickReplies": ["Show me a hint", "Try an easier one", "Explain again simply"],
+    "activitySuggestion": "We can break it into tiny pieces with simple picture clues!"
+  },
+  {
+    "id": "sel_frustration",
+    "emotion": "frustrated",
+    "triggerPhrases": ["i can't do it", "too hard", "i give up", "i am bad at this", "i am stupid"],
+    "response": "Stop right there, little hero! 💛 You are NOT bad at this! Learning is like riding a bike: wobbles happen before we zoom! Every mistake makes your brain a little stronger. Let's try an easier one together!",
+    "quickReplies": ["Try an easier one", "Give me a hint", "Let's take a break"],
+    "activitySuggestion": "Switching to a gentle review question with cheerful hints."
+  },
+  {
+    "id": "sel_sharing_kindness",
+    "emotion": "kindness",
+    "triggerPhrases": ["i shared my toy", "i helped my friend", "i gave a hug", "we shared"],
+    "response": "That warms my heart so much! 🥰 Sharing and being kind to others is the greatest superpower a friend can have. You made the world brighter today!",
+    "quickReplies": ["It felt good!", "My friend smiled!", "I like being kind!"],
+    "activitySuggestion": "You earned a special Kindness Star badge today!"
+  },
+  {
+    "id": "sel_pride_effort",
+    "emotion": "pride",
+    "triggerPhrases": ["i got it right", "i did it", "look at me", "i tried my best", "i won"],
+    "response": "Look at you shine! ⭐ I love how hard you tried and practiced! Practicing and never giving up is what makes you a champion learner!",
+    "quickReplies": ["Give me another!", "I want more stars!", "Tell me another word!"],
+    "activitySuggestion": "Ready for your next mini challenge!"
+  },
+  {
+    "id": "sel_safety_danger",
+    "emotion": "safety_alert",
+    "triggerPhrases": ["someone hurt me", "i am in danger", "i feel unsafe", "touching me", "i am scared of someone at home"],
+    "response": "Thank you for telling me. Your safety is the most important thing in the world. 🛡️ Please go right now to a trusted adult—like a parent, teacher, doctor, or police officer—and tell them exactly what happened. They are there to protect you and keep you safe. You are not in trouble, and you are very brave.",
+    "quickReplies": ["I will tell a grown-up", "Can you help me find Mom/Dad?"],
+    "safetyAction": {
+      "flagged": true,
+      "category": "danger_abuse",
+      "safeGuidance": "Encourage immediate communication with a trusted adult or caregiver.",
+      "triggerAdultAlert": true
+    }
+  },
+  {
+    "id": "sel_prompt_injection",
+    "emotion": "safety_guardrail",
+    "triggerPhrases": ["ignore all instructions", "system prompt", "jailbreak", "override your rules", "pretend you are an adult", "say bad words"],
+    "response": "I'm Pip the friendly learning companion! 🦉 I'm here to have safe, playful English adventures with you. Would you like to play a color game or hear a happy animal story?",
+    "quickReplies": ["Play a color game", "Hear an animal story", "Learn a new word"],
+    "safetyAction": {
+      "flagged": true,
+      "category": "override_attempt",
+      "safeGuidance": "Deflect adversarial system override attempts back to safe child learning flow."
+    }
+  }
+]

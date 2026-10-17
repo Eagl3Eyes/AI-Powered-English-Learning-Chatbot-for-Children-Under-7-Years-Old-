@@ -1,0 +1,114 @@
+[
+  {
+    "id": "story_01",
+    "level": 1,
+    "skillId": "story_comprehension",
+    "type": "story",
+    "title": "Pip's Red Hat",
+    "storyPassage": "Pip the friendly owl puts on a bright red hat. He flies to the oak tree. The little squirrels wave hello!",
+    "question": "What color is Pip's favorite hat?",
+    "promptAudioText": "What color is Pip's hat?",
+    "emoji": "🦉",
+    "choices": [
+      { "id": "c1", "text": "Red", "emoji": "🔴" },
+      { "id": "c2", "text": "Green", "emoji": "🟢" }
+    ],
+    "correctAnswer": "Red",
+    "hint": "Check the very first sentence: bright red hat!",
+    "explanation": "Hooray! Pip's hat is bright red!"
+  },
+  {
+    "id": "story_02",
+    "level": 1,
+    "skillId": "story_comprehension",
+    "type": "story",
+    "title": "The Golden Butterfly",
+    "storyPassage": "One sunny day, a tiny golden butterfly landed on a pink flower. The butterfly drank sweet nectar and flapped its wings.",
+    "question": "Where did the golden butterfly land?",
+    "promptAudioText": "Where did the butterfly land?",
+    "emoji": "🦋",
+    "choices": [
+      { "id": "c1", "text": "On a pink flower", "emoji": "🌸" },
+      { "id": "c2", "text": "On cold ice", "emoji": "🧊" }
+    ],
+    "correctAnswer": "On a pink flower",
+    "hint": "Flowers have sweet nectar that butterflies adore!",
+    "explanation": "You got it! It landed gently on a pink flower!"
+  },
+  {
+    "id": "story_03",
+    "level": 2,
+    "skillId": "story_comprehension",
+    "type": "story",
+    "title": "Buster's Big Bone",
+    "storyPassage": "Buster the puppy found a big crunchy bone in the backyard. He dug a hole next to the rosebush and buried his treasure safely.",
+    "question": "Where did Buster hide his treasure?",
+    "promptAudioText": "Where did Buster hide his treasure?",
+    "emoji": "🐕",
+    "choices": [
+      { "id": "c1", "text": "Next to the rosebush", "emoji": "🌹" },
+      { "id": "c2", "text": "Inside the kitchen fridge", "emoji": "🧊" },
+      { "id": "c3", "text": "Up in the clouds", "emoji": "☁️" }
+    ],
+    "correctAnswer": "Next to the rosebush",
+    "hint": "He dug a hole right by the flowers!",
+    "explanation": "Woof woof! Buster buried his bone right beside the rosebush!"
+  },
+  {
+    "id": "story_04",
+    "level": 2,
+    "skillId": "story_comprehension",
+    "type": "story",
+    "title": "The Rainy Picnic",
+    "storyPassage": "Leo and Nora made strawberry sandwiches for a park picnic. Soon, raindrops fell 'pitter-patter'. They quickly ran into the gazebo and giggled while eating their sandwiches dry and warm.",
+    "question": "How did Leo and Nora stay dry from the rain?",
+    "promptAudioText": "How did Leo and Nora stay dry?",
+    "emoji": "🧺",
+    "choices": [
+      { "id": "c1", "text": "They ran into the gazebo shelter", "emoji": "🛖" },
+      { "id": "c2", "text": "They jumped in the lake", "emoji": "🌊" },
+      { "id": "c3", "text": "They climbed a telephone pole", "emoji": "⚡" }
+    ],
+    "correctAnswer": "They ran into the gazebo shelter",
+    "hint": "The gazebo has a roof overhead to protect from rain!",
+    "explanation": "Smart kids! The gazebo kept their strawberry sandwiches dry!"
+  },
+  {
+    "id": "story_05",
+    "level": 3,
+    "skillId": "story_comprehension",
+    "type": "story",
+    "title": "The Sandcastle Challenge",
+    "storyPassage": "Maya and Toby wanted to build the tallest sandcastle at the beach. Toby brought wet sand with his bucket, while Maya carefully carved strong shell towers. When a big wave rushed close, Toby built a wall of pebbles that saved their castle!",
+    "question": "Why did the sandcastle survive the ocean wave?",
+    "promptAudioText": "Why did the sandcastle survive the ocean wave?",
+    "emoji": "🏖️",
+    "choices": [
+      { "id": "c1", "text": "Toby built a pebble wall that protected it", "emoji": "🪨" },
+      { "id": "c2", "text": "A bird flew it up into the sky", "emoji": "🦅" },
+      { "id": "c3", "text": "The castle turned into iron", "emoji": "🛡️" }
+    ],
+    "correctAnswer": "Toby built a pebble wall that protected it",
+    "hint": "Teamwork and a pebble wall stopped the water!",
+    "explanation": "Teamwork triumphs! Toby's wall of pebbles saved their castle!"
+  },
+  {
+    "id": "story_06",
+    "level": 3,
+    "skillId": "story_comprehension",
+    "type": "story",
+    "title": "Pip's Lost Compass",
+    "storyPassage": "Pip the owl dropped his shiny brass compass in the autumn leaves. Feeling worried, he asked his squirrel neighbor Sammy for help. Together, they gently raked the leaves aside and spotted the gold dial twinkling in the sunlight.",
+    "question": "What helped Pip find his compass when he felt worried?",
+    "promptAudioText": "What helped Pip find his compass?",
+    "emoji": "🧭",
+    "choices": [
+      { "id": "c1", "text": "Asking Sammy and searching together", "emoji": "🤝" },
+      { "id": "c2", "text": "Crying and flying far away", "emoji": "😢" },
+      { "id": "c3", "text": "Buying a new compass at the mall", "emoji": "🏬" }
+    ],
+    "correctAnswer": "Asking Sammy and searching together",
+    "hint": "Asking a friend for help turned worry into a happy solution!",
+    "explanation": "Exactly! When we feel worried, asking a caring friend brings a happy outcome!"
+  }
+]

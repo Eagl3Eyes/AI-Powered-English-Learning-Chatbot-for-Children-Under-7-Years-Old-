@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.kid-button {
+  @apply transition-all duration-200 active:scale-95 hover:scale-105 shadow-md active:shadow-inner cursor-pointer font-bold;
+}
+
+.card-pastel {
+  @apply bg-white/80 backdrop-blur-md border-2 border-white/90 rounded-3xl shadow-xl transition-all;
+}
+
+/* Custom scrollbar for friendly chat */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

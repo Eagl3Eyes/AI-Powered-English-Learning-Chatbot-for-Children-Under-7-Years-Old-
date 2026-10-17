@@ -1,0 +1,250 @@
+[
+  {
+    "id": "sc_l1_01",
+    "level": 1,
+    "skillId": "sentence_building",
+    "type": "sentence_completion",
+    "title": "I See A Cat",
+    "question": "Fill in the blank: 'I see a ___ 🐱.'",
+    "promptAudioText": "I see a...",
+    "emoji": "🐱",
+    "choices": [
+      { "id": "c1", "text": "Cat", "emoji": "🐱" },
+      { "id": "c2", "text": "Sun", "emoji": "☀️" }
+    ],
+    "correctAnswer": "Cat",
+    "hint": "Look at the furry kitten emoji!",
+    "explanation": "Great! 'I see a cat.' Perfect sentence!"
+  },
+  {
+    "id": "sc_l1_02",
+    "level": 1,
+    "skillId": "sentence_building",
+    "type": "sentence_completion",
+    "title": "Red Apple",
+    "question": "Fill in the blank: 'The apple is ___ 🍎.'",
+    "promptAudioText": "The apple is...",
+    "emoji": "🍎",
+    "choices": [
+      { "id": "c1", "text": "Red", "emoji": "❤️" },
+      { "id": "c2", "text": "Blue", "emoji": "💙" }
+    ],
+    "correctAnswer": "Red",
+    "hint": "Apples are bright red!",
+    "explanation": "Super! 'The apple is red!'"
+  },
+  {
+    "id": "sc_l1_03",
+    "level": 1,
+    "skillId": "sentence_building",
+    "type": "sentence_completion",
+    "title": "Shining Sun",
+    "question": "Fill in the blank: 'The yellow sun is in the ___ ☁️.'",
+    "promptAudioText": "The yellow sun is in the...",
+    "emoji": "☀️",
+    "choices": [
+      { "id": "c1", "text": "Sky", "emoji": "🌤️" },
+      { "id": "c2", "text": "Bed", "emoji": "🛏️" }
+    ],
+    "correctAnswer": "Sky",
+    "hint": "Look up high above the clouds!",
+    "explanation": "Spot on! The sun shines up high in the sky!"
+  },
+  {
+    "id": "sc_l1_04",
+    "level": 1,
+    "skillId": "sentence_building",
+    "type": "sentence_completion",
+    "title": "Bounce the Ball",
+    "question": "Fill in the blank: 'We bounce the ___ ⚽.'",
+    "promptAudioText": "We bounce the...",
+    "emoji": "⚽",
+    "choices": [
+      { "id": "c1", "text": "Ball", "emoji": "⚽" },
+      { "id": "c2", "text": "Book", "emoji": "📖" }
+    ],
+    "correctAnswer": "Ball",
+    "hint": "It bounces boing, boing, boing!",
+    "explanation": "Yes! 'We bounce the ball!'"
+  },
+  {
+    "id": "sc_l2_01",
+    "level": 2,
+    "skillId": "actions",
+    "type": "sentence_completion",
+    "title": "Sleeping Puppy",
+    "question": "Fill in the blank: 'The tired puppy is ___ on the rug.'",
+    "promptAudioText": "The tired puppy is blank on the rug.",
+    "emoji": "🐶",
+    "choices": [
+      { "id": "c1", "text": "Sleeping", "emoji": "😴" },
+      { "id": "c2", "text": "Seven", "emoji": "7️⃣" },
+      { "id": "c3", "text": "Blue", "emoji": "💙" }
+    ],
+    "correctAnswer": "Sleeping",
+    "hint": "When tired, puppies curl up to rest and snooze.",
+    "explanation": "Sweet dreams! The puppy is sleeping peacefully!"
+  },
+  {
+    "id": "sc_l2_02",
+    "level": 2,
+    "skillId": "actions",
+    "type": "sentence_completion",
+    "title": "Hopping Rabbit",
+    "question": "Fill in the blank: 'The rabbit is ___ through the green garden.'",
+    "promptAudioText": "The rabbit is blank through the green garden.",
+    "emoji": "🐰",
+    "choices": [
+      { "id": "c1", "text": "Hopping", "emoji": "🐇" },
+      { "id": "c2", "text": "Singing", "emoji": "🎤" },
+      { "id": "c3", "text": "Flying", "emoji": "✈️" }
+    ],
+    "correctAnswer": "Hopping",
+    "hint": "Bunnies bounce on two strong back feet: hop, hop, hop!",
+    "explanation": "Hop hop! The little rabbit is hopping!"
+  },
+  {
+    "id": "sc_l2_03",
+    "level": 2,
+    "skillId": "food",
+    "type": "sentence_completion",
+    "title": "Eating Fruit",
+    "question": "Fill in the blank: 'Maya peels the yellow ___ for a snack.'",
+    "promptAudioText": "Maya peels the yellow blank for a snack.",
+    "emoji": "🍌",
+    "choices": [
+      { "id": "c1", "text": "Banana", "emoji": "🍌" },
+      { "id": "c2", "text": "Rock", "emoji": "🪨" },
+      { "id": "c3", "text": "Shoe", "emoji": "👟" }
+    ],
+    "correctAnswer": "Banana",
+    "hint": "It is sweet and yellow, and you peel the skin!",
+    "explanation": "Yum! Maya enjoys eating a sweet banana!"
+  },
+  {
+    "id": "sc_l2_04",
+    "level": 2,
+    "skillId": "weather",
+    "type": "sentence_completion",
+    "title": "Wearing Boots",
+    "question": "Fill in the blank: 'Put on your yellow boots on a ___ day.'",
+    "promptAudioText": "Put on your yellow boots on a blank day.",
+    "emoji": "🌧️",
+    "choices": [
+      { "id": "c1", "text": "Rainy", "emoji": "🌧️" },
+      { "id": "c2", "text": "Dry", "emoji": "🏜️" },
+      { "id": "c3", "text": "Sunny", "emoji": "☀️" }
+    ],
+    "correctAnswer": "Rainy",
+    "hint": "Boots keep our socks dry in wet water puddles!",
+    "explanation": "Splish splash! Rain boots are for a rainy day!"
+  },
+  {
+    "id": "sc_l2_05",
+    "level": 2,
+    "skillId": "family",
+    "type": "sentence_completion",
+    "title": "Family Hug",
+    "question": "Fill in the blank: 'My big ___ helps me tie my sneakers.'",
+    "promptAudioText": "My big blank helps me tie my sneakers.",
+    "emoji": "👦",
+    "choices": [
+      { "id": "c1", "text": "Brother", "emoji": "👦" },
+      { "id": "c2", "text": "Pencil", "emoji": "✏️" },
+      { "id": "c3", "text": "Apple", "emoji": "🍎" }
+    ],
+    "correctAnswer": "Brother",
+    "hint": "A family member who cares and helps!",
+    "explanation": "A loving brother helps with kind care!"
+  },
+  {
+    "id": "sc_l3_01",
+    "level": 3,
+    "skillId": "social_communication",
+    "type": "sentence_completion",
+    "title": "Sharing Blocks",
+    "question": "Complete the sentence: 'We can build the tallest castle when we work ___.'",
+    "promptAudioText": "We can build the tallest castle when we work...",
+    "emoji": "🏰",
+    "choices": [
+      { "id": "c1", "text": "Together", "emoji": "🤝" },
+      { "id": "c2", "text": "Alone", "emoji": "🚶" },
+      { "id": "c3", "text": "Angry", "emoji": "😠" }
+    ],
+    "correctAnswer": "Together",
+    "hint": "Teamwork makes wonderful dreams come true!",
+    "explanation": "Hooray! Working together builds wonderful things!"
+  },
+  {
+    "id": "sc_l3_02",
+    "level": 3,
+    "skillId": "descriptive_words",
+    "type": "sentence_completion",
+    "title": "Courageous Step",
+    "question": "Complete the sentence: 'Even when I feel nervous, I take a deep breath and show ___.'",
+    "promptAudioText": "Even when I feel nervous, I take a deep breath and show...",
+    "emoji": "🦁",
+    "choices": [
+      { "id": "c1", "text": "Courage", "emoji": "🦁" },
+      { "id": "c2", "text": "Tears", "emoji": "💧" },
+      { "id": "c3", "text": "Silence", "emoji": "🤐" }
+    ],
+    "correctAnswer": "Courage",
+    "hint": "Being brave inside like a friendly lion!",
+    "explanation": "Bravo! Having courage helps you try amazing things!"
+  },
+  {
+    "id": "sc_l3_03",
+    "level": 3,
+    "skillId": "descriptive_words",
+    "type": "sentence_completion",
+    "title": "Curious Questions",
+    "question": "Complete the sentence: 'The ___ little girl asked why the sky is blue.'",
+    "promptAudioText": "The blank little girl asked why the sky is blue.",
+    "emoji": "🔍",
+    "choices": [
+      { "id": "c1", "text": "Curious", "emoji": "💡" },
+      { "id": "c2", "text": "Asleep", "emoji": "😴" },
+      { "id": "c3", "text": "Bored", "emoji": "🥱" }
+    ],
+    "correctAnswer": "Curious",
+    "hint": "She wants to discover answers and learn!",
+    "explanation": "Wonderful! Curious minds discover new worlds every day!"
+  },
+  {
+    "id": "sc_l3_04",
+    "level": 3,
+    "skillId": "sequencing",
+    "type": "sentence_completion",
+    "title": "Weekend Adventure",
+    "question": "Complete the sentence: 'We packed our picnic basket because ___ we are visiting the park.'",
+    "promptAudioText": "We packed our picnic basket because blank we are visiting the park.",
+    "emoji": "🧺",
+    "choices": [
+      { "id": "c1", "text": "Tomorrow", "emoji": "🌅" },
+      { "id": "c2", "text": "Yesterday", "emoji": "⏮️" },
+      { "id": "c3", "text": "Last year", "emoji": "📅" }
+    ],
+    "correctAnswer": "Tomorrow",
+    "hint": "We pack ahead of time for the day coming up next!",
+    "explanation": "That's it! Tomorrow is coming up next for picnic fun!"
+  },
+  {
+    "id": "sc_l3_05",
+    "level": 3,
+    "skillId": "social_communication",
+    "type": "sentence_completion",
+    "title": "Polite Words",
+    "question": "Complete the sentence: 'When asking for more juice at the table, remember to say ___.'",
+    "promptAudioText": "When asking for more juice at the table, remember to say...",
+    "emoji": "🧃",
+    "choices": [
+      { "id": "c1", "text": "Please", "emoji": "🙏" },
+      { "id": "c2", "text": "Now", "emoji": "⏱️" },
+      { "id": "c3", "text": "Never", "emoji": "❌" }
+    ],
+    "correctAnswer": "Please",
+    "hint": "The magic word that shows gentle manners!",
+    "explanation": "'Please' is the polite magic word that warms hearts!"
+  }
+]
