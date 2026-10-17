@@ -4,6 +4,7 @@ import { contentService } from '../services/content.service.js';
 import { learningEngineService } from '../services/learning-engine.service.js';
 import { conversationOrchestratorService } from '../services/conversation-orchestrator.service.js';
 import { selService } from '../services/sel.service.js';
+import { llmProviderService } from '../services/llm-provider.service.js';
 import type { LearningLevel, ChatRequest } from '@chatbot/shared';
 
 export const apiRouter = Router();
@@ -229,7 +230,8 @@ apiRouter.get('/health', (_req: Request, res: Response) => {
     timestamp: new Date().toISOString(),
     uptimeSeconds: Math.round(process.uptime()),
     features: {
-      llmConfigured: Boolean(process.env.GEMINI_API_KEY || process.env.OPENAI_API_KEY),
+      llmConfigured: llmProviderService.isAvailable(),
+      activeProvider: llmProviderService.getActiveProviderName(),
       levelsSupported: [1, 2, 3],
       modesSupported: ['LEARNING', 'CONVERSATION', 'ENGAGEMENT', 'SUPPORT', 'IDLE'],
       contentCount: {

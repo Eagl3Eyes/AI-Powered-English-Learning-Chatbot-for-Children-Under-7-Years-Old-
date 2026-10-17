@@ -154,6 +154,8 @@ export class ConversationOrchestratorService {
     let quickReplies: string[] = [];
     let usedFallback = true;
     let provider = 'deterministic-engine';
+    let modelName = 'Rule-Based Child Pedagogical Engine';
+    let llmLatency = 0;
     let selectionRationale = 'Standard interaction';
 
     if (modeResult.mode === 'LEARNING') {
@@ -177,41 +179,59 @@ export class ConversationOrchestratorService {
       quickReplies = ["Let's learn!", 'How are you feeling?', 'Tell me a story'];
       selectionRationale = 'Session greeting and warm icebreaker';
     } else {
-      // CONVERSATION Mode: First check structured conversation scenarios
-      const convScenarios = contentService.getConversations();
-      const matchedScenario = convScenarios.find(s =>
-        s.triggerPhrases.some(phrase => safetyCheck.sanitizedMessage.toLowerCase().includes(phrase))
-      );
+      // CONVERSATION Mode: First check if LLM provider is active with credentials
+      if (llmProviderService.isAvailable()) {
+        const masteredNames = Object.values(progress.skills)
+          .filter(s => s.mastered)
+          .map(s => s.skillName);
+        const practicingNames = Object.values(progress.skills)
+          .filter(s => !s.mastered)
+          .map(s => s.skillName);
+        const masterySummary = `Mastered: ${masteredNames.join(', ') || 'None yet'}; Practicing: ${practicingNames.join(', ') || 'General English'}`;
 
-      if (matchedScenario) {
-        companionMessage = matchedScenario.botResponse;
-        quickReplies = matchedScenario.suggestedReplies;
-        usedFallback = true;
-        provider = 'conversation-scenario-engine';
-        selectionRationale = `Matched conversational theme: ${matchedScenario.theme}`;
-      } else if (llmProviderService.isAvailable()) {
-        const systemPrompt = `You are Pip, a gentle, cheerful English-teaching companion for a child aged 3-6 at Level ${learner.level}. Use simple vocabulary, high warmth, short sentences (maximum 2 sentences). Praise curiosity. Never use scary words, sarcasm, or complex grammar. Encourage learning English happily.`;
         const llmResponse = await llmProviderService.generateChildResponse({
-          systemPrompt,
-          userPrompt: safetyCheck.sanitizedMessage,
           level: learner.level,
-          timeoutMs: 1400
+          learnerNickname: learner.nickname,
+          userPrompt: safetyCheck.sanitizedMessage,
+          recentTurns: session.recentTurns.slice(-4),
+          masterySummary,
+          timeoutMs: 1500
         });
 
-        if (llmResponse && llmResponse.content) {
-          companionMessage = safetyService.validateOutput(llmResponse.content, learner.level);
+        if (llmResponse && llmResponse.message) {
+          companionMessage = safetyService.validateOutput(llmResponse.message, learner.level);
           usedFallback = false;
           provider = llmResponse.provider;
-          selectionRationale = `Generated via ${llmResponse.provider} with child guardrail validation`;
+          modelName = llmResponse.modelName;
+          llmLatency = llmResponse.latencyMs;
+          selectionRationale = `Generated live via ${llmResponse.modelName} (${llmLatency}ms)`;
+          if (llmResponse.suggestedReplies && llmResponse.suggestedReplies.length > 0) {
+            quickReplies = llmResponse.suggestedReplies;
+          }
         }
       }
 
-      // Final fallback if LLM was unavailable or timed out
+      // Check structured conversation scenarios if LLM was unavailable or timed out
       if (!companionMessage) {
-        companionMessage = this.generateDeterministicConversation(safetyCheck.sanitizedMessage, learner.level);
-        usedFallback = true;
-        provider = 'deterministic-fallback';
-        selectionRationale = 'Generated via deterministic child dialogue fallback';
+        const convScenarios = contentService.getConversations();
+        const matchedScenario = convScenarios.find(s =>
+          s.triggerPhrases.some(phrase => safetyCheck.sanitizedMessage.toLowerCase().includes(phrase))
+        );
+
+        if (matchedScenario) {
+          companionMessage = matchedScenario.botResponse;
+          quickReplies = matchedScenario.suggestedReplies;
+          usedFallback = true;
+          provider = 'conversation-scenario-engine';
+          modelName = 'Pre-authored Pedagogical Scenarios';
+          selectionRationale = `Matched conversational theme: ${matchedScenario.theme}`;
+        } else {
+          companionMessage = this.generateDeterministicConversation(safetyCheck.sanitizedMessage, learner.level);
+          usedFallback = true;
+          provider = 'deterministic-fallback';
+          modelName = 'Rule-Based Child Pedagogical Engine';
+          selectionRationale = 'Generated via deterministic child dialogue fallback';
+        }
       }
 
       if (quickReplies.length === 0) {
@@ -240,7 +260,10 @@ export class ConversationOrchestratorService {
       metadata: {
         modeReason: modeResult.reason,
         usedFallback,
-        provider
+        provider,
+        modelName,
+        llmLatencyMs: llmLatency,
+        selectionRationale
       }
     };
   }

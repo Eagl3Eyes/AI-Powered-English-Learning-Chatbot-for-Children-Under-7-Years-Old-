@@ -139,6 +139,8 @@ export interface ChatResponse {
     modeReason: string;
     usedFallback: boolean;
     provider?: string;
+    modelName?: string;
+    llmLatencyMs?: number;
     selectionRationale?: string;
   };
 }
