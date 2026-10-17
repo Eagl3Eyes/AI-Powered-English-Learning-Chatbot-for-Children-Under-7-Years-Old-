@@ -80,8 +80,8 @@ apiRouter.post('/chat', async (req: Request, res: Response) => {
 // 3. Learning Progress (both /learners/:learnerId/progress and /progress/:learnerId)
 const getProgressHandler = (req: Request, res: Response) => {
   const { learnerId } = req.params;
+  const learner = storage.getOrCreateLearner(learnerId);
   const progress = storage.getProgress(learnerId);
-  const learner = storage.getLearner(learnerId);
 
   res.status(200).json({
     progress,

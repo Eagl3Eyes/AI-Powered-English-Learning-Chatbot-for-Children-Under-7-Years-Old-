@@ -134,6 +134,30 @@ export class StorageService {
     return this.data.learners[id];
   }
 
+  getOrCreateLearner(id: string): Learner {
+    if (!this.data.learners[id]) {
+      this.data.learners[id] = {
+        id,
+        nickname: 'Explorer',
+        avatar: 'owl',
+        level: 1,
+        createdAt: new Date().toISOString(),
+        stars: 0,
+        badges: ['Welcome Explorer'],
+        preferences: {
+          audioAutoPlay: true,
+          theme: 'playful',
+          favoriteTopics: ['colors', 'animals']
+        }
+      };
+      if (!this.data.progress[id]) {
+        this.createInitialProgress(id, 1);
+      }
+      this.persist();
+    }
+    return this.data.learners[id];
+  }
+
   saveLearner(learner: Learner): Learner {
     this.data.learners[learner.id] = { ...learner };
     if (!this.data.progress[learner.id]) {

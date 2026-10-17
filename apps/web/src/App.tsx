@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Component, type ErrorInfo, type ReactNode } from 'react';
 import { WelcomeScreen } from './screens/WelcomeScreen.js';
 import { DashboardScreen } from './screens/DashboardScreen.js';
 import { ChatScreen } from './screens/ChatScreen.js';
@@ -9,32 +9,95 @@ import { SettingsScreen } from './screens/SettingsScreen.js';
 import { apiClient } from './api/client.js';
 import type { Learner, LearningProgress, LearningLevel } from '@chatbot/shared';
 
+// Error Boundary to prevent blank screens on unhandled client exceptions
+interface ErrorBoundaryProps {
+  children: ReactNode;
+}
+
+interface ErrorBoundaryState {
+  hasError: boolean;
+  errorMessage: string;
+}
+
+class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
+    this.state = { hasError: false, errorMessage: '' };
+  }
+
+  static getDerivedStateFromError(error: Error): ErrorBoundaryState {
+    return { hasError: true, errorMessage: error?.message || 'Unexpected error' };
+  }
+
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error('Client ErrorBoundary caught:', error, errorInfo);
+  }
+
+  handleReset = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-amber-50 to-orange-100 text-slate-800 font-comic">
+          <div className="card-pastel p-8 max-w-md text-center border-4 border-amber-300 shadow-xl">
+            <div className="text-6xl mb-3 animate-bounce">🦉</div>
+            <h2 className="text-2xl font-black text-slate-800 mb-2">Oops! Pip Stumbled!</h2>
+            <p className="text-sm text-slate-600 mb-6 leading-relaxed">
+              Pip bumped into a tiny pebble! Let's shake our feathers and restart our fun adventure together.
+            </p>
+            <button
+              type="button"
+              onClick={this.handleReset}
+              className="px-6 py-3 bg-amber-400 hover:bg-amber-500 text-slate-900 font-black rounded-2xl shadow-md transition transform active:scale-95"
+            >
+              Restart Adventure ✨
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
 type ScreenType = 'welcome' | 'dashboard' | 'learn' | 'play' | 'talk' | 'feelings' | 'parent' | 'settings';
 
-export const App: React.FC = () => {
+export const AppContent: React.FC = () => {
   const [screen, setScreen] = useState<ScreenType>('welcome');
   const [learner, setLearner] = useState<Learner | null>(null);
   const [progress, setProgress] = useState<LearningProgress | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Restore session from localStorage if exists
+  // Restore session safely from localStorage if exists
   useEffect(() => {
     const savedLearnerId = localStorage.getItem('pip_learner_id');
     if (savedLearnerId) {
       apiClient
         .fetchProgress(savedLearnerId)
         .then(res => {
-          setLearner(res.learner);
-          setProgress(res.progress);
-          setScreen('dashboard');
+          if (res && res.learner && res.progress) {
+            setLearner(res.learner);
+            setProgress(res.progress);
+            setScreen('dashboard');
+          } else {
+            localStorage.removeItem('pip_learner_id');
+            setScreen('welcome');
+          }
         })
         .catch(() => {
-          // If fetch fails, keep on welcome screen
+          // If fetch fails or learner is not found, safely default to welcome screen
+          localStorage.removeItem('pip_learner_id');
+          setScreen('welcome');
         })
         .finally(() => {
           setIsLoading(false);
         });
     } else {
+      setScreen('welcome');
       setIsLoading(false);
     }
   }, []);
@@ -44,12 +107,17 @@ export const App: React.FC = () => {
     try {
       const existingId = localStorage.getItem('pip_learner_id') || undefined;
       const res = await apiClient.startSession(existingId, nickname, avatar, level);
-      setLearner(res.learner);
-      setProgress(res.progress);
-      localStorage.setItem('pip_learner_id', res.learner.id);
-      setScreen('dashboard');
+      if (res && res.learner && res.progress) {
+        setLearner(res.learner);
+        setProgress(res.progress);
+        localStorage.setItem('pip_learner_id', res.learner.id);
+        setScreen('dashboard');
+      } else {
+        setScreen('welcome');
+      }
     } catch (err) {
       console.error('Session start error:', err);
+      setScreen('welcome');
     } finally {
       setIsLoading(false);
     }
@@ -82,7 +150,9 @@ export const App: React.FC = () => {
   const handleResetProgress = () => {
     if (learner) {
       apiClient.fetchProgress(learner.id).then(res => {
-        setProgress(res.progress);
+        if (res && res.progress) {
+          setProgress(res.progress);
+        }
         setScreen('dashboard');
       });
     }
@@ -97,21 +167,27 @@ export const App: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-blue-50 via-pink-50 to-amber-50">
         <div className="text-center">
           <div className="text-6xl mb-3 animate-bounce">🦉</div>
           <div className="text-xl font-black text-slate-800">Starting Pip & Friends...</div>
+          <div className="text-xs text-slate-500 font-semibold mt-1">Ready for an English adventure!</div>
         </div>
       </div>
     );
   }
 
+  // Fallback: If learner/progress is missing, always render WelcomeScreen
+  const isLearnerReady = Boolean(learner && progress);
+
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <main className="flex-1">
-        {screen === 'welcome' && <WelcomeScreen onStart={handleStartLearner} />}
+        {(!isLearnerReady || screen === 'welcome') && (
+          <WelcomeScreen onStart={handleStartLearner} />
+        )}
 
-        {screen === 'dashboard' && learner && progress && (
+        {isLearnerReady && screen === 'dashboard' && learner && progress && (
           <DashboardScreen
             learner={learner}
             progress={progress}
@@ -119,7 +195,7 @@ export const App: React.FC = () => {
           />
         )}
 
-        {screen === 'learn' && learner && (
+        {isLearnerReady && screen === 'learn' && learner && (
           <LearningActivityScreen
             learner={learner}
             modeType="quiz"
@@ -128,7 +204,7 @@ export const App: React.FC = () => {
           />
         )}
 
-        {screen === 'play' && learner && (
+        {isLearnerReady && screen === 'play' && learner && (
           <LearningActivityScreen
             learner={learner}
             modeType="sentence_completion"
@@ -137,7 +213,7 @@ export const App: React.FC = () => {
           />
         )}
 
-        {screen === 'talk' && learner && (
+        {isLearnerReady && screen === 'talk' && learner && (
           <ChatScreen
             learner={learner}
             onBack={() => setScreen('dashboard')}
@@ -145,7 +221,7 @@ export const App: React.FC = () => {
           />
         )}
 
-        {screen === 'feelings' && learner && (
+        {isLearnerReady && screen === 'feelings' && learner && (
           <FeelingsScreen
             learner={learner}
             onBack={() => setScreen('dashboard')}
@@ -153,7 +229,7 @@ export const App: React.FC = () => {
           />
         )}
 
-        {screen === 'parent' && learner && (
+        {isLearnerReady && screen === 'parent' && learner && (
           <ParentDashboardScreen
             learnerId={learner.id}
             onBack={() => setScreen('dashboard')}
@@ -161,7 +237,7 @@ export const App: React.FC = () => {
           />
         )}
 
-        {screen === 'settings' && learner && (
+        {isLearnerReady && screen === 'settings' && learner && (
           <SettingsScreen
             learner={learner}
             onBack={() => setScreen('dashboard')}
@@ -176,5 +252,13 @@ export const App: React.FC = () => {
         Pip & Friends • English Learning Companion for Children Under 7 • COPPA & Child-Safe
       </footer>
     </div>
+  );
+};
+
+export const App: React.FC = () => {
+  return (
+    <ErrorBoundary>
+      <AppContent />
+    </ErrorBoundary>
   );
 };
