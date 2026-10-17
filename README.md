@@ -142,4 +142,3 @@ The application is deployed live in production on Vercel:
 - [docs/ARCHITECTURE.md](file:///d:/Personal%20Project/Interview%20Test/AI-Powered%20English%20Learning%20Chatbot%20for%20Children%20Under%207/docs/ARCHITECTURE.md) - Architecture deep dive and dataflow breakdown.
 - [docs/architecture.mmd](file:///d:/Personal%20Project/Interview%20Test/AI-Powered%20English%20Learning%20Chatbot%20for%20Children%20Under%207/docs/architecture.mmd) - Editable Mermaid source diagram.
 - [docs/TESTING.md](file:///d:/Personal%20Project/Interview%20Test/AI-Powered%20English%20Learning%20Chatbot%20for%20Children%20Under%207/docs/TESTING.md) - Comprehensive test, evaluation framework, and latency benchmark reports.
-- [docs/VIDEO_SCRIPT.md](file:///d:/Personal%20Project/Interview%20Test/AI-Powered%20English%20Learning%20Chatbot%20for%20Children%20Under%207/docs/VIDEO_SCRIPT.md) - Exactly 120-second video presentation script with scene checklist.
