@@ -71,8 +71,8 @@ For in-depth architectural details and Mermaid diagrams, see [docs/ARCHITECTURE.
 
 ### 1. Clone & Install
 ```bash
-git clone <repo-url>
-cd ai-english-learning-chatbot
+git clone https://github.com/Eagl3Eyes/AI-Powered-English-Learning-Chatbot-for-Children-Under-7-Years-Old-.git
+cd AI-Powered-English-Learning-Chatbot-for-Children-Under-7-Years-Old-
 npm install
 ```
 
