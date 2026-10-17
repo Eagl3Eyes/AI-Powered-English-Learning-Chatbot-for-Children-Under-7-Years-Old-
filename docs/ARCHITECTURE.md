@@ -32,7 +32,8 @@ graph TD
   end
 
   subgraph Persistence["Storage & Content Library"]
-    ContentLib[("Educational Content Library (JSON: 50+ vocab, 30+ quiz, stories)")]
+    ContentLib[("Educational Content Library: 125 Vocab, 62 Quizzes, 22 Sentences, 12 Stories, 16 SEL, 16 Scenarios")]
+    SkillGraph[("Prerequisite Dependency Graph (14 Skills across L1-L3)")]
     DB[("Persistent Database (Learners, Progress, Sessions, Attempts)")]
   end
 
@@ -51,6 +52,7 @@ graph TD
   LLMProvider -. On Timeout or Error .-> FallbackGen
   LearningEngine --> DB
   LearningEngine --> ContentLib
+  LearningEngine --> SkillGraph
   SelEngine --> ContentLib
   FallbackGen --> ContentLib
 
@@ -64,17 +66,28 @@ graph TD
 
 ## 2. Key Architectural Decisions
 
-1. **Hybrid LLM + Deterministic Core**:
-   - High-stakes educational progression, quiz scoring, hint delivery, and safety enforcement are completely deterministic.
-   - LLM is used only for natural conversational expansion when keys are provided and completes within a strict 1,500ms deadline.
-   - If the LLM provider fails, times out, or is omitted, the deterministic fallback delivers high-quality child responses with 0ms downtime and ~10-25ms latency.
+1. **Hybrid LLM + Deterministic Educational Core**:
+   - High-stakes educational progression, quiz scoring, hint delivery, prerequisite checking, and safety enforcement are completely deterministic.
+   - LLM is used only for natural conversational flexibility within strict child-friendly token and length limits.
+   - Strict 1,500ms provider timeout with instant deterministic fallback guarantees zero downtime and sub-50ms p95 latency.
 
-2. **Multi-Signal Child Mode Classifier**:
+2. **Skill-Level Prerequisite Dependency Graph**:
+   - 14 versioned skills mapped across Levels 1 through 3.
+   - The adaptive engine verifies that prerequisite skills are mastered (e.g. `everyday_objects` and `animals_basic` before Level 2 `actions`) before offering advanced practice.
+
+3. **Exponential Moving Average (EMA) Mastery Model**:
+   - Real-time score: `newMastery = 0.35 * latestEvidence + 0.65 * previousMastery`.
+   - Requires at least 3 attempts to establish mastery (threshold ≥0.80), insulating early learners from single-guess luck or temporary fatigue.
+   - Hint usage applies a transparent evidence penalty (`latestEvidence = 1.0 - 0.25 = 0.75`), encouraging independence while preserving positive reinforcement.
+
+4. **Multi-Signal Child Mode Classifier**:
    - Distinguishes between `LEARNING`, `CONVERSATION`, `ENGAGEMENT`, `SUPPORT`, and `IDLE`.
-   - Never traps a child in an unwanted lesson; respects explicit "stop" and "exit" commands.
-   - Identifies repeated failure and lowers question difficulty while injecting emotional support.
+   - Respects explicit "stop", "exit", or "break" commands immediately by switching out of quiz mode.
+   - Triggers empathetic support on signs of distress or consecutive errors without medical labeling.
 
-3. **COPPA / Child Safety by Design**:
-   - Zero real-world identity collected (no full names, phone numbers, emails, or geolocations).
-   - Audio is synthesized and recognized purely in-browser using Web Speech APIs; zero voice audio recordings are captured or stored on servers.
-   - Immediate trusted-adult referral if abuse or danger is detected.
+5. **COPPA / GDPR-K Child Safety by Design**:
+   - Zero child PII collected (pseudonymous avatars and star counts only).
+   - Audio synthesized and transcribed locally via client-side Web Speech API (no server-side audio storage).
+   - Immediate trusted-adult referral if harm, distress, or abuse is disclosed.
+   - Explicit parent-facing GDPR-K data deletion route (`DELETE /api/v1/learners/:id/data`).
+

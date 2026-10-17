@@ -103,6 +103,12 @@ Runs 20 unit, state machine, safety, and API tests:
 npm run test
 ```
 
+### Run 5-Dimension Automated Evaluation Suite
+Evaluates 21 deterministic assertions across educational correctness, mode detection, context isolation, safety/SEL, and reliability fallbacks:
+```bash
+npm run eval
+```
+
 ### Run Latency Benchmark
 Measures statistical p50, p95, and p99 response times under concurrent load:
 ```bash
@@ -110,9 +116,9 @@ npm run benchmark
 ```
 
 **Measured Latency Benchmark Output:**
-- **p50 Latency:** 3.53 ms
-- **p95 Latency:** 30.80 ms *(Target: < 2,000 ms)*
-- **p99 Latency:** 43.86 ms
+- **p50 Latency:** 3.90 ms
+- **p95 Latency:** 30.61 ms *(Target: < 2,000 ms)*
+- **p99 Latency:** 43.73 ms
 - **Error Rate:** 0.0% (60 / 60 requests successful)
 
 ---
@@ -122,6 +128,9 @@ npm run benchmark
 The application is deployed live in production on Vercel:
 - **Live Production URL:** [https://pip-english-kids.vercel.app](https://pip-english-kids.vercel.app)
 - **API Health Endpoint:** [https://pip-english-kids.vercel.app/api/health](https://pip-english-kids.vercel.app/api/health)
+- **API Readiness Endpoint:** [https://pip-english-kids.vercel.app/api/ready](https://pip-english-kids.vercel.app/api/ready)
+- **Curriculum Skills API:** [https://pip-english-kids.vercel.app/api/v1/curriculum/skills](https://pip-english-kids.vercel.app/api/v1/curriculum/skills)
+- **Prerequisite Graph API:** [https://pip-english-kids.vercel.app/api/v1/curriculum/prerequisites](https://pip-english-kids.vercel.app/api/v1/curriculum/prerequisites)
 - **Frontend Assets:** Built to `apps/web/dist` and globally distributed via Vercel Edge CDN.
 - **Backend API:** Managed via serverless routing directing `/api/*` to the Express conversation engine.
 
@@ -129,7 +138,8 @@ The application is deployed live in production on Vercel:
 
 ## 📜 Documentation Index
 
-- [docs/SYSTEM_DESIGN.md](file:///d:/Personal%20Project/Interview%20Test/AI-Powered%20English%20Learning%20Chatbot%20for%20Children%20Under%207/docs/SYSTEM_DESIGN.md) - Full 17-section system design document.
-- [docs/ARCHITECTURE.md](file:///d:/Personal%20Project/Interview%20Test/AI-Powered%20English%20Learning%20Chatbot%20for%20Children%20Under%207/docs/ARCHITECTURE.md) - Architecture deep dive.
+- [docs/SYSTEM_DESIGN.md](file:///d:/Personal%20Project/Interview%20Test/AI-Powered%20English%20Learning%20Chatbot%20for%20Children%20Under%207/docs/SYSTEM_DESIGN.md) - Full 17-section system design document with EMA mastery formula and prerequisite graph.
+- [docs/ARCHITECTURE.md](file:///d:/Personal%20Project/Interview%20Test/AI-Powered%20English%20Learning%20Chatbot%20for%20Children%20Under%207/docs/ARCHITECTURE.md) - Architecture deep dive and dataflow breakdown.
 - [docs/architecture.mmd](file:///d:/Personal%20Project/Interview%20Test/AI-Powered%20English%20Learning%20Chatbot%20for%20Children%20Under%207/docs/architecture.mmd) - Editable Mermaid source diagram.
-- [docs/TESTING.md](file:///d:/Personal%20Project/Interview%20Test/AI-Powered%20English%20Learning%20Chatbot%20for%20Children%20Under%207/docs/TESTING.md) - Comprehensive test and latency benchmark reports.
+- [docs/TESTING.md](file:///d:/Personal%20Project/Interview%20Test/AI-Powered%20English%20Learning%20Chatbot%20for%20Children%20Under%207/docs/TESTING.md) - Comprehensive test, evaluation framework, and latency benchmark reports.
+- [docs/VIDEO_SCRIPT.md](file:///d:/Personal%20Project/Interview%20Test/AI-Powered%20English%20Learning%20Chatbot%20for%20Children%20Under%207/docs/VIDEO_SCRIPT.md) - Exactly 120-second video presentation script with scene checklist.

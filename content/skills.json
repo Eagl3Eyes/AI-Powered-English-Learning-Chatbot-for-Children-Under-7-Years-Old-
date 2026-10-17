@@ -1,0 +1,114 @@
+[
+  {
+    "id": "greetings",
+    "level": 1,
+    "name": "Greetings & Politeness",
+    "description": "Basic hellos, goodbyes, please, and thank you.",
+    "prerequisites": [],
+    "masteryThreshold": 0.8
+  },
+  {
+    "id": "colors",
+    "level": 1,
+    "name": "Colors & Shapes",
+    "description": "Primary and secondary color identification.",
+    "prerequisites": [],
+    "masteryThreshold": 0.8
+  },
+  {
+    "id": "numbers",
+    "level": 1,
+    "name": "Numbers & Counting",
+    "description": "Counting objects from 1 to 10.",
+    "prerequisites": [],
+    "masteryThreshold": 0.8
+  },
+  {
+    "id": "animals_basic",
+    "level": 1,
+    "name": "Familiar Animals",
+    "description": "Pets and farm animals (cat, dog, cow, duck).",
+    "prerequisites": [],
+    "masteryThreshold": 0.8
+  },
+  {
+    "id": "everyday_objects",
+    "level": 1,
+    "name": "Everyday Objects",
+    "description": "Toys, books, clothes, and classroom objects.",
+    "prerequisites": [],
+    "masteryThreshold": 0.8
+  },
+  {
+    "id": "actions",
+    "level": 2,
+    "name": "Action Verbs",
+    "description": "Verbs like running, jumping, sleeping, eating.",
+    "prerequisites": ["everyday_objects", "animals_basic"],
+    "masteryThreshold": 0.8
+  },
+  {
+    "id": "food",
+    "level": 2,
+    "name": "Food & Nutrition",
+    "description": "Fruits, vegetables, bread, and breakfast items.",
+    "prerequisites": ["everyday_objects"],
+    "masteryThreshold": 0.8
+  },
+  {
+    "id": "weather",
+    "level": 2,
+    "name": "Weather & Nature",
+    "description": "Sunny, rainy, windy, snowy, clouds, trees.",
+    "prerequisites": ["colors"],
+    "masteryThreshold": 0.8
+  },
+  {
+    "id": "family",
+    "level": 2,
+    "name": "Family & Community",
+    "description": "Mother, father, brother, sister, grandma, friends.",
+    "prerequisites": ["greetings"],
+    "masteryThreshold": 0.8
+  },
+  {
+    "id": "sentence_building",
+    "level": 2,
+    "name": "Simple Sentences",
+    "description": "Subject + Verb + Object fill-in-the-blank patterns.",
+    "prerequisites": ["actions", "everyday_objects"],
+    "masteryThreshold": 0.8
+  },
+  {
+    "id": "story_comprehension",
+    "level": 3,
+    "name": "Story Comprehension",
+    "description": "Reading and listening to multi-sentence narrative passages.",
+    "prerequisites": ["sentence_building", "family"],
+    "masteryThreshold": 0.85
+  },
+  {
+    "id": "sequencing",
+    "level": 3,
+    "name": "Time & Sequencing",
+    "description": "Before/after, yesterday/tomorrow, step-by-step order.",
+    "prerequisites": ["numbers", "sentence_building"],
+    "masteryThreshold": 0.85
+  },
+  {
+    "id": "descriptive_words",
+    "level": 3,
+    "name": "Descriptive Words & Opposites",
+    "description": "Big/small, fast/slow, loud/quiet, curious, courageous.",
+    "prerequisites": ["colors", "sentence_building"],
+    "masteryThreshold": 0.85
+  },
+  {
+    "id": "social_communication",
+    "level": 3,
+    "name": "Social Dialogue & Empathy",
+    "description": "Sharing feelings, expressing needs, polite problem-solving.",
+    "prerequisites": ["greetings", "story_comprehension"],
+    "masteryThreshold": 0.85
+  }
+]

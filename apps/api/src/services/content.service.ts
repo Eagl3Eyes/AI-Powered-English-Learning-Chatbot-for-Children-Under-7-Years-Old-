@@ -1,13 +1,15 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import type { Activity, LearningLevel, ActivityType } from '@chatbot/shared';
+import type { Activity, LearningLevel, ActivityType, SkillDefinition } from '@chatbot/shared';
 import {
   defaultVocabulary,
   defaultQuizzes,
   defaultSentenceCompletions,
   defaultStories,
-  defaultSelScenarios
+  defaultSelScenarios,
+  defaultSkills,
+  defaultConversations
 } from './content.data.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -39,12 +41,23 @@ export interface SelScenario {
   };
 }
 
+export interface ConversationScenario {
+  id: string;
+  theme: string;
+  triggerPhrases: string[];
+  level: LearningLevel;
+  botResponse: string;
+  suggestedReplies: string[];
+}
+
 export class ContentService {
   private vocabulary: VocabularyItem[] = (defaultVocabulary as any) || [];
   private quizzes: Activity[] = (defaultQuizzes as any) || [];
   private sentenceCompletions: Activity[] = (defaultSentenceCompletions as any) || [];
   private stories: Activity[] = (defaultStories as any) || [];
   private selScenarios: SelScenario[] = (defaultSelScenarios as any) || [];
+  private skills: SkillDefinition[] = (defaultSkills as any) || [];
+  private conversations: ConversationScenario[] = (defaultConversations as any) || [];
 
   constructor() {
     this.loadContent();
@@ -91,9 +104,28 @@ export class ContentService {
       if (selPath && fs.existsSync(selPath)) {
         this.selScenarios = JSON.parse(fs.readFileSync(selPath, 'utf-8'));
       }
-    } catch (err) {
-      // Retain bundled defaults if file reading encounters an issue
+
+      const skillsPath = this.resolveContentPath('skills.json');
+      if (skillsPath && fs.existsSync(skillsPath)) {
+        this.skills = JSON.parse(fs.readFileSync(skillsPath, 'utf-8'));
+      }
+
+      const convPath = this.resolveContentPath('conversations.json');
+      if (convPath && fs.existsSync(convPath)) {
+        this.conversations = JSON.parse(fs.readFileSync(convPath, 'utf-8'));
+      }
+    } catch {
+      // Retain bundled defaults
     }
+  }
+
+  getSkills(level?: LearningLevel): SkillDefinition[] {
+    if (!level) return this.skills;
+    return this.skills.filter(s => s.level === level);
+  }
+
+  getSkillById(id: string): SkillDefinition | undefined {
+    return this.skills.find(s => s.id === id);
   }
 
   getVocabulary(level?: LearningLevel): VocabularyItem[] {
@@ -114,10 +146,24 @@ export class ContentService {
   getNextActivityForLearner(
     level: LearningLevel,
     excludeIds: string[] = [],
-    preferredType?: ActivityType
+    preferredType?: ActivityType,
+    masteredSkills: string[] = []
   ): Activity {
-    const available = this.getAllActivities(level).filter(a => !excludeIds.includes(a.id));
-    const pool = available.length > 0 ? available : this.getAllActivities(level);
+    const allLevelActs = this.getAllActivities(level);
+
+    // Filter by prerequisite readiness
+    const eligible = allLevelActs.filter(act => {
+      const skillDef = this.getSkillById(act.skillId);
+      if (!skillDef || !skillDef.prerequisites || skillDef.prerequisites.length === 0) {
+        return true;
+      }
+      // Check if all prerequisites are mastered
+      return skillDef.prerequisites.every(p => masteredSkills.includes(p));
+    });
+
+    const candidatePool = eligible.length > 0 ? eligible : allLevelActs;
+    const unpracticed = candidatePool.filter(a => !excludeIds.includes(a.id));
+    const pool = unpracticed.length > 0 ? unpracticed : candidatePool;
 
     if (preferredType) {
       const typed = pool.filter(a => a.type === preferredType);
@@ -131,6 +177,11 @@ export class ContentService {
 
   getSelScenarios(): SelScenario[] {
     return this.selScenarios;
+  }
+
+  getConversations(level?: LearningLevel): ConversationScenario[] {
+    if (!level) return this.conversations;
+    return this.conversations.filter(c => c.level === level);
   }
 }
 

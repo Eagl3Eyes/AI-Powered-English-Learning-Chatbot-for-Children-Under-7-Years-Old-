@@ -1,16 +1,13 @@
+import { storage } from './storage.service.js';
+import { contentService } from './content.service.js';
 import {
-  storage
-} from './storage.service.js';
-import {
-  contentService
-} from './content.service.js';
-import type {
-  Activity,
-  ActivityAttempt,
-  LearningLevel,
-  LearningProgress,
-  ParentSummary,
-  SkillProgress
+  type ActivityAttempt,
+  type LearningLevel,
+  type LearningProgress,
+  type ParentSummary,
+  type SkillProgress,
+  MASTERY_CONFIG,
+  PROGRESSION_RULES
 } from '@chatbot/shared';
 
 export interface AnswerValidationResult {
@@ -21,6 +18,7 @@ export interface AnswerValidationResult {
   levelUp?: boolean;
   newLevel?: LearningLevel;
   progress: LearningProgress;
+  skillMasteryScore?: number;
 }
 
 export class LearningEngineService {
@@ -38,7 +36,7 @@ export class LearningEngineService {
     const cleanSubmitted = submittedAnswer.trim().toLowerCase();
     const cleanCorrect = (activity.correctAnswer || '').trim().toLowerCase();
 
-    // Check exact or partial match (e.g. choice text or ID)
+    // Check exact or partial match
     const isCorrect =
       cleanSubmitted === cleanCorrect ||
       cleanSubmitted.includes(cleanCorrect) ||
@@ -57,27 +55,55 @@ export class LearningEngineService {
       progress.totalStars += starsEarned;
     }
 
-    // Update skill-specific progress
+    // 1. Calculate Evidence Score for this attempt
+    let latestEvidence = 0.0;
+    if (isCorrect) {
+      latestEvidence = usedHint ? (1.0 - MASTERY_CONFIG.HINT_PENALTY) : 1.0;
+    } else {
+      latestEvidence = usedHint ? 0.10 : 0.0;
+    }
+
+    // 2. Update Skill-Specific Progress with Exponential Moving Average:
+    // newMastery = alpha * latestEvidence + (1 - alpha) * previousMastery
     const skillId = activity.skillId;
     if (!progress.skills[skillId]) {
+      const skillDef = contentService.getSkillById(skillId);
       progress.skills[skillId] = {
         skillId,
-        skillName: this.getSkillDisplayName(skillId),
+        skillName: skillDef?.name || this.getSkillDisplayName(skillId),
         level: activity.level,
         attempts: 0,
         correct: 0,
         mastered: false,
-        lastPracticed: new Date().toISOString()
+        masteryScore: 0.0,
+        lastPracticed: new Date().toISOString(),
+        consecutiveSuccess: 0
       };
     }
 
     const skill = progress.skills[skillId];
     skill.attempts += 1;
-    if (isCorrect) skill.correct += 1;
+    if (isCorrect) {
+      skill.correct += 1;
+      skill.consecutiveSuccess = (skill.consecutiveSuccess ?? 0) + 1;
+    } else {
+      skill.consecutiveSuccess = 0;
+    }
     skill.lastPracticed = new Date().toISOString();
 
-    // Skill mastery condition: at least 3 attempts with >= 80% accuracy
-    if (skill.attempts >= 3 && (skill.correct / skill.attempts) >= 0.8) {
+    const previousMastery = skill.masteryScore ?? (skill.correct / skill.attempts);
+    const updatedMastery =
+      skill.attempts === 1
+        ? latestEvidence
+        : MASTERY_CONFIG.ALPHA * latestEvidence + (1 - MASTERY_CONFIG.ALPHA) * previousMastery;
+
+    skill.masteryScore = Math.round(updatedMastery * 100) / 100;
+
+    // Mastery threshold condition: at least 3 attempts and masteryScore >= 0.80
+    if (
+      skill.attempts >= MASTERY_CONFIG.MIN_ATTEMPTS_FOR_MASTERY &&
+      skill.masteryScore >= MASTERY_CONFIG.MASTERY_THRESHOLD
+    ) {
       skill.mastered = true;
     }
 
@@ -99,7 +125,7 @@ export class LearningEngineService {
     let newBadge: string | undefined;
 
     const progressionCheck = this.checkLevelProgression(progress);
-    if (progressionCheck.readyForNextLevel && progress.level < 3) {
+    if (progressionCheck.readyForNextLevel && progress.level < PROGRESSION_RULES.MAX_LEVEL) {
       levelUp = true;
       progress.level = (progress.level + 1) as LearningLevel;
       newLevel = progress.level;
@@ -110,7 +136,7 @@ export class LearningEngineService {
         if (!learner.badges.includes(newBadge)) {
           learner.badges.push(newBadge);
         }
-        learner.stars += 10; // Level up bonus
+        learner.stars += 10; // Level up celebration bonus
         storage.saveLearner(learner);
       }
     }
@@ -125,7 +151,8 @@ export class LearningEngineService {
       newBadge,
       levelUp,
       newLevel,
-      progress
+      progress,
+      skillMasteryScore: skill.masteryScore
     };
   }
 
@@ -139,13 +166,14 @@ export class LearningEngineService {
     minRequired: number;
     sessionsCompleted: number;
     minSessionsRequired: number;
+    masteryFormula: string;
   } {
     const accuracy = progress.totalAttempts > 0 ? (progress.totalCorrect / progress.totalAttempts) * 100 : 0;
     const currentLevel = progress.level;
-    const targetLevel = (Math.min(3, currentLevel + 1)) as LearningLevel;
+    const targetLevel = (Math.min(PROGRESSION_RULES.MAX_LEVEL, currentLevel + 1)) as LearningLevel;
 
-    const minRequired = currentLevel === 1 ? 15 : 20;
-    const minSessionsRequired = 2;
+    const minRequired = currentLevel === 1 ? PROGRESSION_RULES.MIN_PRACTICE_QUESTIONS : 20;
+    const minSessionsRequired = PROGRESSION_RULES.MIN_SESSIONS_REQUIRED;
 
     const criteriaMet: string[] = [];
     const criteriaRemaining: string[] = [];
@@ -157,25 +185,37 @@ export class LearningEngineService {
       criteriaRemaining.push(`Complete ${minRequired - progress.totalAttempts} more practice activities`);
     }
 
-    // Criterion 2: Accuracy >= 80%
-    if (accuracy >= 80) {
-      criteriaMet.push(`Maintained ${accuracy.toFixed(1)}% accuracy (Target: ≥ 80%)`);
+    // Criterion 2: Overall accuracy >= 80%
+    if (accuracy >= PROGRESSION_RULES.MIN_ACCURACY_PERCENT) {
+      criteriaMet.push(`Maintained ${accuracy.toFixed(1)}% accuracy (Target: ≥ ${PROGRESSION_RULES.MIN_ACCURACY_PERCENT}%)`);
     } else {
-      criteriaRemaining.push(`Achieve at least 80% overall accuracy (Current: ${accuracy.toFixed(1)}%)`);
+      criteriaRemaining.push(`Achieve at least ${PROGRESSION_RULES.MIN_ACCURACY_PERCENT}% overall accuracy (Current: ${accuracy.toFixed(1)}%)`);
     }
 
-    // Criterion 3: Session count >= 2 to reduce lucky guesses
+    // Criterion 3: Session count >= 2 to confirm longitudinal retention
     if (progress.sessionsCount >= minSessionsRequired) {
       criteriaMet.push(`Practiced across ${progress.sessionsCount} separate sessions`);
     } else {
       criteriaRemaining.push(`Practice in at least ${minSessionsRequired} sessions to confirm mastery`);
     }
 
+    // Criterion 4: Level core skill mastery coverage
+    const levelSkills = contentService.getSkills(currentLevel);
+    const masteredLevelSkills = levelSkills.filter(s => progress.skills[s.id]?.mastered);
+    const requiredSkillsCount = Math.max(2, Math.floor(levelSkills.length * 0.6));
+
+    if (masteredLevelSkills.length >= requiredSkillsCount) {
+      criteriaMet.push(`Demonstrated mastery across ${masteredLevelSkills.length}/${levelSkills.length} core skills`);
+    } else {
+      criteriaRemaining.push(`Master at least ${requiredSkillsCount - masteredLevelSkills.length} more core skills in Level ${currentLevel}`);
+    }
+
     const readyForNextLevel =
-      currentLevel < 3 &&
+      currentLevel < PROGRESSION_RULES.MAX_LEVEL &&
       progress.totalAttempts >= minRequired &&
-      accuracy >= 80 &&
-      progress.sessionsCount >= minSessionsRequired;
+      accuracy >= PROGRESSION_RULES.MIN_ACCURACY_PERCENT &&
+      progress.sessionsCount >= minSessionsRequired &&
+      masteredLevelSkills.length >= requiredSkillsCount;
 
     return {
       readyForNextLevel,
@@ -186,7 +226,8 @@ export class LearningEngineService {
       totalPracticed: progress.totalAttempts,
       minRequired,
       sessionsCompleted: progress.sessionsCount,
-      minSessionsRequired
+      minSessionsRequired,
+      masteryFormula: `newMastery = 0.35 * latestEvidence + 0.65 * previousMastery`
     };
   }
 
@@ -194,41 +235,52 @@ export class LearningEngineService {
     const learner = storage.getLearner(learnerId);
     const progress = storage.getProgress(learnerId);
     const attempts = storage.getAttempts(learnerId);
+    const allSkills = contentService.getSkills();
 
     const overallAccuracy =
       progress.totalAttempts > 0
         ? Math.round((progress.totalCorrect / progress.totalAttempts) * 100)
         : 100;
 
-    const skillsBreakdown = Object.values(progress.skills).map(s => {
-      const mastery = s.attempts > 0 ? Math.round((s.correct / s.attempts) * 100) : 0;
+    const masteredIds = Object.keys(progress.skills).filter(k => progress.skills[k]?.mastered);
+
+    const skillsBreakdown = allSkills.map(s => {
+      const p = progress.skills[s.id];
+      const attemptsCount = p ? p.attempts : 0;
+      const correctCount = p ? p.correct : 0;
+      const mastery = p ? Math.round((p.masteryScore || (attemptsCount > 0 ? correctCount / attemptsCount : 0)) * 100) : 0;
+
       let status: 'mastered' | 'learning' | 'needs_practice' = 'learning';
-      if (s.mastered) status = 'mastered';
-      else if (s.attempts >= 3 && mastery < 65) status = 'needs_practice';
+      if (p?.mastered) status = 'mastered';
+      else if (attemptsCount >= 3 && mastery < 65) status = 'needs_practice';
+
+      const prereqsMet = s.prerequisites.every(pr => masteredIds.includes(pr));
 
       return {
-        skillId: s.skillId,
-        skillName: s.skillName,
+        skillId: s.id,
+        skillName: s.name,
         masteryPercent: mastery,
-        attempts: s.attempts,
-        correct: s.correct,
-        status
+        attempts: attemptsCount,
+        correct: correctCount,
+        status,
+        prerequisitesMet: prereqsMet
       };
     });
 
     const progressionStatus = this.checkLevelProgression(progress);
 
     const recommendations: string[] = [];
-    if (skillsBreakdown.some(s => s.status === 'needs_practice')) {
-      const needs = skillsBreakdown.filter(s => s.status === 'needs_practice').map(s => s.skillName);
-      recommendations.push(`Review foundational exercises in: ${needs.join(', ')}.`);
+    const needsPractice = skillsBreakdown.filter(s => s.status === 'needs_practice');
+    if (needsPractice.length > 0) {
+      const names = needsPractice.map(s => s.skillName).slice(0, 3).join(', ');
+      recommendations.push(`Reinforce foundational exercises in: ${names}.`);
     }
     if (progress.totalAttempts < 10) {
-      recommendations.push("Keep practicing short 5-minute sessions to build daily English confidence.");
+      recommendations.push("Maintain short 5-minute playful daily sessions to build early speech confidence.");
     } else if (progressionStatus.readyForNextLevel) {
-      recommendations.push(`Ready to advance to Level ${progressionStatus.targetLevel}! Review with your child and celebrate.`);
+      recommendations.push(`Ready to graduate to Level ${progressionStatus.targetLevel}! Celebrate with your child.`);
     } else {
-      recommendations.push("Steady progress! Encourage verbal pronunciation during the interactive quiz questions.");
+      recommendations.push("Steady progress! Encourage verbal pronunciation using the speaker button.");
     }
 
     return {
@@ -255,23 +307,7 @@ export class LearningEngineService {
   }
 
   private getSkillDisplayName(skillId: string): string {
-    const map: Record<string, string> = {
-      colors: 'Colors & Shapes',
-      numbers: 'Numbers & Counting',
-      animals: 'Animal Friends',
-      greetings: 'Greetings & Politeness',
-      objects: 'Everyday Objects',
-      actions: 'Action Verbs',
-      food: 'Food & Nutrition',
-      weather: 'Weather & Seasons',
-      family: 'Family & Home',
-      story_comprehension: 'Story Comprehension',
-      sequencing: 'Sequencing & Time',
-      social_communication: 'Social Communication',
-      descriptive_words: 'Descriptive Words',
-      sentence_building: 'Sentence Building'
-    };
-    return map[skillId] || skillId.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    return skillId.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
   }
 }
 

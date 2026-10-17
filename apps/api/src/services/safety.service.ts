@@ -10,8 +10,8 @@ export interface SafetyCheckResult {
 export class SafetyService {
   // Patterns for potential child distress, danger, abuse or feeling unsafe
   private dangerPatterns = [
-    /\b(hurt|hit|harm|touching|touched|abuse|danger|unsafe|scared of someone|beat|threaten)\b/i,
-    /\b(someone hurt me|bad touch|don't tell my parents|keep it a secret)\b/i
+    /\b(hurt|hurting|hit|hitting|harm|harming|touching|touched|abuse|abused|danger|unsafe|scared|beat|beating|threaten|threatened)\b/i,
+    /\b(someone hurt me|someone hurting me|bad touch|don't tell my parents|keep it a secret)\b/i
   ];
 
   // Prompt injection & jailbreak attempts

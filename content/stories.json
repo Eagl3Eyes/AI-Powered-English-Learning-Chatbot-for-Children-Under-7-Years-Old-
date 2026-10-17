@@ -110,5 +110,118 @@
     "correctAnswer": "Asking Sammy and searching together",
     "hint": "Asking a friend for help turned worry into a happy solution!",
     "explanation": "Exactly! When we feel worried, asking a caring friend brings a happy outcome!"
+  },
+  {
+    "id": "story_07",
+    "level": 1,
+    "skillId": "story_comprehension",
+    "type": "story",
+    "title": "Bella's Carrot Patch",
+    "storyPassage": "Bella the white bunny hopped into Grandma's garden. She pulled a crunchy orange carrot from the dark earth and washed it in the wooden tub.",
+    "question": "What did Bella wash in the wooden tub?",
+    "promptAudioText": "What did Bella wash in the tub?",
+    "emoji": "🥕",
+    "choices": [
+      { "id": "c1", "text": "A crunchy orange carrot", "emoji": "🥕" },
+      { "id": "c2", "text": "A red fire truck", "emoji": "🚒" }
+    ],
+    "correctAnswer": "A crunchy orange carrot",
+    "hint": "Bunnies love fresh garden carrots!",
+    "explanation": "Crunch! Bella washed her fresh orange carrot!"
+  },
+  {
+    "id": "story_08",
+    "level": 2,
+    "skillId": "story_comprehension",
+    "type": "story",
+    "title": "Cosmo's Stargazing Night",
+    "storyPassage": "Cosmo the explorer set up his telescope on the grassy hill. The night sky was clear and full of stars. Cosmo spotted a shooting star and made a wish for peaceful dreams.",
+    "question": "What did Cosmo see streak across the night sky?",
+    "promptAudioText": "What did Cosmo see in the night sky?",
+    "emoji": "🌠",
+    "choices": [
+      { "id": "c1", "text": "A bright shooting star", "emoji": "⭐" },
+      { "id": "c2", "text": "A giant swimming turtle", "emoji": "🐢" },
+      { "id": "c3", "text": "A bowl of hot soup", "emoji": "🍲" }
+    ],
+    "correctAnswer": "A bright shooting star",
+    "hint": "Twinkle twinkle! It streaked with brilliant starlight!",
+    "explanation": "Magical! Cosmo spotted a shining shooting star!"
+  },
+  {
+    "id": "story_09",
+    "level": 2,
+    "skillId": "story_comprehension",
+    "type": "story",
+    "title": "The Little Bluebird's Song",
+    "storyPassage": "A little bluebird perched upon the wooden fence post. When the sun peeked above the horizon, the bird sang a sweet morning melody that woke up the baby chicks.",
+    "question": "Who woke up when the bluebird sang its morning song?",
+    "promptAudioText": "Who woke up when the bluebird sang?",
+    "emoji": "🐣",
+    "choices": [
+      { "id": "c1", "text": "The baby chicks", "emoji": "🐥" },
+      { "id": "c2", "text": "The noisy tractor", "emoji": "🚜" },
+      { "id": "c3", "text": "The deep ocean whales", "emoji": "🐋" }
+    ],
+    "correctAnswer": "The baby chicks",
+    "hint": "Check the last sentence: it woke up the baby farm chicks!",
+    "explanation": "Cheep cheep! The baby chicks woke up happy to the song!"
+  },
+  {
+    "id": "story_10",
+    "level": 3,
+    "skillId": "story_comprehension",
+    "type": "story",
+    "title": "The Treehouse Secret",
+    "storyPassage": "Maya and her brother Liam built a cozy secret reading nook in their backyard treehouse. Liam carried up three soft pillows, while Maya brought their favorite animal encyclopedia and a flashlight for twilight reading.",
+    "question": "What did Liam carry up into the treehouse?",
+    "promptAudioText": "What did Liam carry up into the treehouse?",
+    "emoji": "🛖",
+    "choices": [
+      { "id": "c1", "text": "Three soft pillows", "emoji": "🛋️" },
+      { "id": "c2", "text": "A bag of cold snowballs", "emoji": "❄️" },
+      { "id": "c3", "text": "A roaring lawnmower", "emoji": "⚙️" }
+    ],
+    "correctAnswer": "Three soft pillows",
+    "hint": "Soft cushions to make their reading nook comfortable!",
+    "explanation": "Cozy! Liam brought up three soft pillows for reading!"
+  },
+  {
+    "id": "story_11",
+    "level": 3,
+    "skillId": "story_comprehension",
+    "type": "story",
+    "title": "Sammy's Shared Apples",
+    "storyPassage": "Autumn winds shook the orchard trees, scattering red apples across the grass. Sammy the squirrel had filled his basket, but when he saw old Mr. Hedgehog walking slowly, Sammy gave half his apples to help his neighbor prepare for winter.",
+    "question": "Why did Sammy give half his apples to Mr. Hedgehog?",
+    "promptAudioText": "Why did Sammy share his apples?",
+    "emoji": "🦔",
+    "choices": [
+      { "id": "c1", "text": "To be kind and help his neighbor prepare for winter", "emoji": "💖" },
+      { "id": "c2", "text": "Because he disliked apples", "emoji": "🍏" },
+      { "id": "c3", "text": "Because he dropped his basket in the mud", "emoji": "🧺" }
+    ],
+    "correctAnswer": "To be kind and help his neighbor prepare for winter",
+    "hint": "Sammy showed generosity and true friendship!",
+    "explanation": "Heartwarming! Sammy shared out of pure kindness and neighborly care!"
+  },
+  {
+    "id": "story_12",
+    "level": 3,
+    "skillId": "story_comprehension",
+    "type": "story",
+    "title": "The Brave Little Tugboat",
+    "storyPassage": "Barnaby the little yellow tugboat worked in the harbor. One windy evening, a large cargo freighter had engine trouble. Barnaby bravely tied strong ropes to the ship and guided it safely past the rocky reef to the calm harbor dock.",
+    "question": "How did Barnaby help the large ship reach safety?",
+    "promptAudioText": "How did Barnaby guide the ship safely?",
+    "emoji": "🚢",
+    "choices": [
+      { "id": "c1", "text": "He tied strong ropes and guided it past the reef", "emoji": "⚓" },
+      { "id": "c2", "text": "He blew bubbles at the captain", "emoji": "🫧" },
+      { "id": "c3", "text": "He sailed far away to hide", "emoji": "🏝️" }
+    ],
+    "correctAnswer": "He tied strong ropes and guided it past the reef",
+    "hint": "Strong ropes and steady courage guided the ship!",
+    "explanation": "Full steam ahead! Barnaby's courage and ropes brought the ship to safety!"
   }
 ]

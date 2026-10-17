@@ -13,7 +13,7 @@
       { "id": "c2", "text": "Blue", "emoji": "💙" }
     ],
     "correctAnswer": "Yellow",
-    "hint": "Think of ripe bananas and the warm sunshine!",
+    "hint": "Think of ripe bananas and warm sunshine!",
     "explanation": "Great job! The sun shines with a bright yellow light!"
   },
   {
@@ -21,7 +21,7 @@
     "level": 1,
     "skillId": "colors",
     "type": "quiz",
-    "title": "Apple Color",
+    "title": "Strawberry Color",
     "question": "What color is this sweet strawberry?",
     "promptAudioText": "What color is this sweet strawberry?",
     "emoji": "🍓",
@@ -30,13 +30,13 @@
       { "id": "c2", "text": "Green", "emoji": "💚" }
     ],
     "correctAnswer": "Red",
-    "hint": "Strawberries are red like a shiny fire truck!",
+    "hint": "Strawberries are red like shiny fire trucks!",
     "explanation": "Hooray! The strawberry is bright red!"
   },
   {
     "id": "q_l1_03",
     "level": 1,
-    "skillId": "animals",
+    "skillId": "animals_basic",
     "type": "quiz",
     "title": "Cat Sound",
     "question": "Which animal says 'Meow'?",
@@ -47,7 +47,7 @@
       { "id": "c2", "text": "Dog", "emoji": "🐶" }
     ],
     "correctAnswer": "Cat",
-    "hint": "It purrs when happy and loves to chase string!",
+    "hint": "It purrs when happy and chases yarn!",
     "explanation": "Purr-fect! A cute cat says meow!"
   },
   {
@@ -64,7 +64,7 @@
       { "id": "c2", "text": "One", "emoji": "1️⃣" }
     ],
     "correctAnswer": "Two",
-    "hint": "Count them: one... two!",
+    "hint": "Count them together: one... two!",
     "explanation": "Spot on! There are two shining stars!"
   },
   {
@@ -87,7 +87,7 @@
   {
     "id": "q_l1_06",
     "level": 1,
-    "skillId": "objects",
+    "skillId": "everyday_objects",
     "type": "quiz",
     "title": "Bouncing Toy",
     "question": "Which toy bounces on the playground?",
@@ -116,7 +116,7 @@
       { "id": "c3", "text": "Red", "emoji": "❤️" }
     ],
     "correctAnswer": "Blue",
-    "hint": "Look up outside or at the ocean water!",
+    "hint": "Look up outside or at ocean water!",
     "explanation": "Super job! The clear sky is a lovely blue!"
   },
   {
@@ -157,7 +157,7 @@
   {
     "id": "q_l1_10",
     "level": 1,
-    "skillId": "objects",
+    "skillId": "everyday_objects",
     "type": "quiz",
     "title": "Story Time",
     "question": "What do we open to read fairy tales and stories?",
@@ -172,13 +172,218 @@
     "explanation": "You got it! A book is full of magical stories!"
   },
   {
+    "id": "q_l1_11",
+    "level": 1,
+    "skillId": "colors",
+    "type": "quiz",
+    "title": "Grass Color",
+    "question": "What color is fresh spring grass in the park?",
+    "promptAudioText": "What color is fresh spring grass in the park?",
+    "emoji": "🌱",
+    "choices": [
+      { "id": "c1", "text": "Green", "emoji": "💚" },
+      { "id": "c2", "text": "Red", "emoji": "❤️" }
+    ],
+    "correctAnswer": "Green",
+    "hint": "Look at leaves on tall trees!",
+    "explanation": "Awesome! Fresh grass and green leaves grow tall!"
+  },
+  {
+    "id": "q_l1_12",
+    "level": 1,
+    "skillId": "animals_basic",
+    "type": "quiz",
+    "title": "Puppy Wag",
+    "question": "Which animal barks happily and wags its tail?",
+    "promptAudioText": "Which animal barks happily and wags its tail?",
+    "emoji": "🐕",
+    "choices": [
+      { "id": "c1", "text": "Dog", "emoji": "🐶" },
+      { "id": "c2", "text": "Fish", "emoji": "🐟" }
+    ],
+    "correctAnswer": "Dog",
+    "hint": "A loyal puppy that loves to play fetch!",
+    "explanation": "Woof woof! A happy dog loves to play!"
+  },
+  {
+    "id": "q_l1_13",
+    "level": 1,
+    "skillId": "numbers",
+    "type": "quiz",
+    "title": "Four Apples",
+    "question": "Count the apples: 🍎 🍎 🍎 🍎. How many?",
+    "promptAudioText": "Count the apples: How many?",
+    "emoji": "🍎",
+    "choices": [
+      { "id": "c1", "text": "Four", "emoji": "4️⃣" },
+      { "id": "c2", "text": "Two", "emoji": "2️⃣" }
+    ],
+    "correctAnswer": "Four",
+    "hint": "One, two, three, four crunchy apples!",
+    "explanation": "Tasty! There are four red apples!"
+  },
+  {
+    "id": "q_l1_14",
+    "level": 1,
+    "skillId": "colors",
+    "type": "quiz",
+    "title": "Juicy Grapes",
+    "question": "What color are these sweet grapes? 🍇",
+    "promptAudioText": "What color are these sweet grapes?",
+    "emoji": "🍇",
+    "choices": [
+      { "id": "c1", "text": "Purple", "emoji": "💜" },
+      { "id": "c2", "text": "Yellow", "emoji": "💛" }
+    ],
+    "correctAnswer": "Purple",
+    "hint": "A rich regal color like plums and violet flowers!",
+    "explanation": "Delicious! The grapes are sweet and purple!"
+  },
+  {
+    "id": "q_l1_15",
+    "level": 1,
+    "skillId": "animals_basic",
+    "type": "quiz",
+    "title": "Pond Friend",
+    "question": "Which yellow bird swims in the pond and says 'Quack'?",
+    "promptAudioText": "Which yellow bird swims in the pond and says Quack?",
+    "emoji": "🦆",
+    "choices": [
+      { "id": "c1", "text": "Duck", "emoji": "🦆" },
+      { "id": "c2", "text": "Cow", "emoji": "🐮" }
+    ],
+    "correctAnswer": "Duck",
+    "hint": "It has webbed orange feet and waddles!",
+    "explanation": "Quack quack! That is a cute yellow duck!"
+  },
+  {
+    "id": "q_l1_16",
+    "level": 1,
+    "skillId": "numbers",
+    "type": "quiz",
+    "title": "High Five",
+    "question": "How many fingers do you have on one hand?",
+    "promptAudioText": "How many fingers do you have on one hand?",
+    "emoji": "✋",
+    "choices": [
+      { "id": "c1", "text": "Five", "emoji": "5️⃣" },
+      { "id": "c2", "text": "Three", "emoji": "3️⃣" }
+    ],
+    "correctAnswer": "Five",
+    "hint": "Thumb, pointer, middle, ring, pinky!",
+    "explanation": "High five! Five fingers on one hand!"
+  },
+  {
+    "id": "q_l1_17",
+    "level": 1,
+    "skillId": "everyday_objects",
+    "type": "quiz",
+    "title": "Sun Hat",
+    "question": "What do we wear on our head when the sun is bright?",
+    "promptAudioText": "What do we wear on our head when the sun is bright?",
+    "emoji": "🧢",
+    "choices": [
+      { "id": "c1", "text": "Hat", "emoji": "👒" },
+      { "id": "c2", "text": "Shoe", "emoji": "👟" }
+    ],
+    "correctAnswer": "Hat",
+    "hint": "It keeps the sunshine out of our eyes!",
+    "explanation": "Smart choice! A hat shades our face and head!"
+  },
+  {
+    "id": "q_l1_18",
+    "level": 1,
+    "skillId": "animals_basic",
+    "type": "quiz",
+    "title": "Farm Cow",
+    "question": "Which big farm animal gives us fresh milk and says 'Moo'?",
+    "promptAudioText": "Which animal gives us milk and says Moo?",
+    "emoji": "🐮",
+    "choices": [
+      { "id": "c1", "text": "Cow", "emoji": "🐄" },
+      { "id": "c2", "text": "Bird", "emoji": "🐦" }
+    ],
+    "correctAnswer": "Cow",
+    "hint": "It grazes peacefully on the green pasture!",
+    "explanation": "Moo! The gentle cow gives cold white milk!"
+  },
+  {
+    "id": "q_l1_19",
+    "level": 1,
+    "skillId": "greetings",
+    "type": "quiz",
+    "title": "Gentle Request",
+    "question": "When asking for a cookie, which polite word do we use?",
+    "promptAudioText": "When asking for a cookie, which polite word do we use?",
+    "emoji": "🍪",
+    "choices": [
+      { "id": "c1", "text": "Please", "emoji": "🙏" },
+      { "id": "c2", "text": "No", "emoji": "🚫" }
+    ],
+    "correctAnswer": "Please",
+    "hint": "The magic word that opens smiles!",
+    "explanation": "Magic word! 'Please can I have a cookie?' is so polite!"
+  },
+  {
+    "id": "q_l1_20",
+    "level": 1,
+    "skillId": "numbers",
+    "type": "quiz",
+    "title": "One Bright Moon",
+    "question": "How many moons shine in the night sky? 🌙",
+    "promptAudioText": "How many moons shine in the night sky?",
+    "emoji": "🌙",
+    "choices": [
+      { "id": "c1", "text": "One", "emoji": "1️⃣" },
+      { "id": "c2", "text": "Ten", "emoji": "🔟" }
+    ],
+    "correctAnswer": "One",
+    "hint": "Just one special moon lights the dark night!",
+    "explanation": "Look up! There is one gentle moon glowing above!"
+  },
+  {
+    "id": "q_l1_21",
+    "level": 1,
+    "skillId": "colors",
+    "type": "quiz",
+    "title": "Orange Fruit",
+    "question": "What color is this juicy sweet orange? 🍊",
+    "promptAudioText": "What color is this juicy sweet orange?",
+    "emoji": "🍊",
+    "choices": [
+      { "id": "c1", "text": "Orange", "emoji": "🧡" },
+      { "id": "c2", "text": "Blue", "emoji": "💙" }
+    ],
+    "correctAnswer": "Orange",
+    "hint": "The fruit shares its name with its bright color!",
+    "explanation": "Yummy! An orange is bright orange!"
+  },
+  {
+    "id": "q_l1_22",
+    "level": 1,
+    "skillId": "everyday_objects",
+    "type": "quiz",
+    "title": "Rolling Wheels",
+    "question": "Which vehicle drives along roads on four spinning wheels?",
+    "promptAudioText": "Which vehicle drives along roads on four wheels?",
+    "emoji": "🚗",
+    "choices": [
+      { "id": "c1", "text": "Car", "emoji": "🚙" },
+      { "id": "c2", "text": "Cup", "emoji": "🥛" }
+    ],
+    "correctAnswer": "Car",
+    "hint": "Beep beep! It takes us on family trips!",
+    "explanation": "Vroom vroom! The family car rolls along the street!"
+  },
+
+  {
     "id": "q_l2_01",
     "level": 2,
-    "skillId": "animals",
+    "skillId": "actions",
     "type": "quiz",
     "title": "Animal with Trunk",
-    "question": "Which animal has big floppy ears and a long trunk?",
-    "promptAudioText": "Which animal has big floppy ears and a long trunk?",
+    "question": "Which giant animal has floppy ears and a long trunk?",
+    "promptAudioText": "Which giant animal has floppy ears and a long trunk?",
     "emoji": "🐘",
     "choices": [
       { "id": "c1", "text": "Elephant", "emoji": "🐘" },
@@ -187,7 +392,7 @@
     ],
     "correctAnswer": "Elephant",
     "hint": "It is the largest gentle animal on land!",
-    "explanation": "Fantastic! An elephant sprays water with its trunk!"
+    "explanation": "Fantastic! An elephant sprays cool water with its trunk!"
   },
   {
     "id": "q_l2_02",
@@ -246,7 +451,7 @@
   {
     "id": "q_l2_05",
     "level": 2,
-    "skillId": "numbers",
+    "skillId": "sentence_building",
     "type": "quiz",
     "title": "Counting Fingers",
     "question": "If you hold up both hands, how many fingers do you have in all?",
@@ -300,7 +505,7 @@
   {
     "id": "q_l2_08",
     "level": 2,
-    "skillId": "animals",
+    "skillId": "actions",
     "type": "quiz",
     "title": "Flapping Wings",
     "question": "Which delicate friend flutters between flowers?",
@@ -351,6 +556,223 @@
     "hint": "Warm slices come from the bakery!",
     "explanation": "Delicious! Toast bread is wonderful in the morning!"
   },
+  {
+    "id": "q_l2_11",
+    "level": 2,
+    "skillId": "actions",
+    "type": "quiz",
+    "title": "Jumping Frog",
+    "question": "The little green frog pushes off the lily pad. He is...",
+    "promptAudioText": "The green frog pushes off the lily pad. He is...",
+    "emoji": "🐸",
+    "choices": [
+      { "id": "c1", "text": "Jumping", "emoji": "🦘" },
+      { "id": "c2", "text": "Sleeping", "emoji": "😴" },
+      { "id": "c3", "text": "Reading", "emoji": "📖" }
+    ],
+    "correctAnswer": "Jumping",
+    "hint": "Boing! Leap through the fresh air!",
+    "explanation": "Ribbit! The frog is jumping into the pond!"
+  },
+  {
+    "id": "q_l2_12",
+    "level": 2,
+    "skillId": "actions",
+    "type": "quiz",
+    "title": "Sweet Melody",
+    "question": "Mia taps her feet and makes lovely music with her voice. She is...",
+    "promptAudioText": "Mia makes lovely music with her voice. She is...",
+    "emoji": "🎶",
+    "choices": [
+      { "id": "c1", "text": "Singing", "emoji": "🎤" },
+      { "id": "c2", "text": "Eating", "emoji": "🍽️" },
+      { "id": "c3", "text": "Sleeping", "emoji": "💤" }
+    ],
+    "correctAnswer": "Singing",
+    "hint": "La la la! Humming a cheerful tune!",
+    "explanation": "Beautiful tune! Mia is singing a happy song!"
+  },
+  {
+    "id": "q_l2_13",
+    "level": 2,
+    "skillId": "weather",
+    "type": "quiz",
+    "title": "Snowman Fun",
+    "question": "White flakes drift from the sky and coat the ground. What weather is it?",
+    "promptAudioText": "White flakes drift from the sky. What weather is it?",
+    "emoji": "⛄",
+    "choices": [
+      { "id": "c1", "text": "Snowy", "emoji": "❄️" },
+      { "id": "c2", "text": "Hot", "emoji": "🔥" },
+      { "id": "c3", "text": "Sunny", "emoji": "☀️" }
+    ],
+    "correctAnswer": "Snowy",
+    "hint": "Put on mittens and wrap up in a warm scarf!",
+    "explanation": "Brrr! It is snowy weather, time to build a snowman!"
+  },
+  {
+    "id": "q_l2_14",
+    "level": 2,
+    "skillId": "family",
+    "type": "quiz",
+    "title": "Family Team",
+    "question": "The boy who shares your parents and plays blocks with you is your...",
+    "promptAudioText": "The boy who shares your parents is your...",
+    "emoji": "👦",
+    "choices": [
+      { "id": "c1", "text": "Brother", "emoji": "👦" },
+      { "id": "c2", "text": "Grandma", "emoji": "👵" },
+      { "id": "c3", "text": "Teacher", "emoji": "👩‍🏫" }
+    ],
+    "correctAnswer": "Brother",
+    "hint": "A family buddy who grows up alongside you!",
+    "explanation": "Yes! Your brother is a wonderful family playmate!"
+  },
+  {
+    "id": "q_l2_15",
+    "level": 2,
+    "skillId": "food",
+    "type": "quiz",
+    "title": "Orange Veggie",
+    "question": "Which crunchy orange vegetable grows under the garden soil?",
+    "promptAudioText": "Which crunchy orange vegetable grows in the soil?",
+    "emoji": "🥕",
+    "choices": [
+      { "id": "c1", "text": "Carrot", "emoji": "🥕" },
+      { "id": "c2", "text": "Apple", "emoji": "🍎" },
+      { "id": "c3", "text": "Milk", "emoji": "🥛" }
+    ],
+    "correctAnswer": "Carrot",
+    "hint": "Bunnies love to nibble this crunchy root veggie!",
+    "explanation": "Crunch crunch! Carrots are delicious and healthy!"
+  },
+  {
+    "id": "q_l2_16",
+    "level": 2,
+    "skillId": "sentence_building",
+    "type": "quiz",
+    "title": "Cozy Nap",
+    "question": "Choose the best word: 'The little kitten is ___ on the rug.'",
+    "promptAudioText": "The little kitten is blank on the rug.",
+    "emoji": "🐱",
+    "choices": [
+      { "id": "c1", "text": "Sleeping", "emoji": "😴" },
+      { "id": "c2", "text": "Flying", "emoji": "✈️" },
+      { "id": "c3", "text": "Barking", "emoji": "🐕" }
+    ],
+    "correctAnswer": "Sleeping",
+    "hint": "The kitten curled up in a furry ball with eyes shut.",
+    "explanation": "Purr! The kitten is sleeping warm and cozy!"
+  },
+  {
+    "id": "q_l2_17",
+    "level": 2,
+    "skillId": "actions",
+    "type": "quiz",
+    "title": "Swimming Fish",
+    "question": "Goldie the fish uses her fins to glide through water. She is...",
+    "promptAudioText": "Goldie uses her fins to glide through water. She is...",
+    "emoji": "🐠",
+    "choices": [
+      { "id": "c1", "text": "Swimming", "emoji": "🏊" },
+      { "id": "c2", "text": "Climbing", "emoji": "🧗" },
+      { "id": "c3", "text": "Singing", "emoji": "🎤" }
+    ],
+    "correctAnswer": "Swimming",
+    "hint": "Fish move through water with gentle swishes!",
+    "explanation": "Splash! Goldie is swimming gracefully!"
+  },
+  {
+    "id": "q_l2_18",
+    "level": 2,
+    "skillId": "family",
+    "type": "quiz",
+    "title": "Loving Mother",
+    "question": "Who tucks you in bed with a goodnight kiss?",
+    "promptAudioText": "Who tucks you in bed with a goodnight kiss?",
+    "emoji": "👩‍👧",
+    "choices": [
+      { "id": "c1", "text": "Mother", "emoji": "👩" },
+      { "id": "c2", "text": "Car", "emoji": "🚗" },
+      { "id": "c3", "text": "Dog", "emoji": "🐶" }
+    ],
+    "correctAnswer": "Mother",
+    "hint": "A caring parent whose hugs feel like home!",
+    "explanation": "A loving mother gives warm bedtime hugs!"
+  },
+  {
+    "id": "q_l2_19",
+    "level": 2,
+    "skillId": "weather",
+    "type": "quiz",
+    "title": "Cloudy Day",
+    "question": "When soft grey clouds cover the blue sky, the weather is...",
+    "promptAudioText": "When grey clouds cover the sky, the weather is...",
+    "emoji": "☁️",
+    "choices": [
+      { "id": "c1", "text": "Cloudy", "emoji": "☁️" },
+      { "id": "c2", "text": "Sunny", "emoji": "☀️" },
+      { "id": "c3", "text": "Snowy", "emoji": "❄️" }
+    ],
+    "correctAnswer": "Cloudy",
+    "hint": "The clouds hide the bright sun like a gentle blanket.",
+    "explanation": "Spot on! The day is cool and cloudy!"
+  },
+  {
+    "id": "q_l2_20",
+    "level": 2,
+    "skillId": "food",
+    "type": "quiz",
+    "title": "Healthy Drink",
+    "question": "What cool white drink comes from dairy cows and makes teeth strong?",
+    "promptAudioText": "What cool white drink comes from cows?",
+    "emoji": "🥛",
+    "choices": [
+      { "id": "c1", "text": "Milk", "emoji": "🥛" },
+      { "id": "c2", "text": "Juice", "emoji": "🧃" },
+      { "id": "c3", "text": "Tea", "emoji": "🍵" }
+    ],
+    "correctAnswer": "Milk",
+    "hint": "A glass of cold white goodness!",
+    "explanation": "Yum! Fresh milk builds strong bones and healthy smiles!"
+  },
+  {
+    "id": "q_l2_21",
+    "level": 2,
+    "skillId": "sentence_building",
+    "type": "quiz",
+    "title": "Garden Blooms",
+    "question": "Complete the sentence: 'The butterfly lands on the pink ___.'",
+    "promptAudioText": "The butterfly lands on the pink blank.",
+    "emoji": "🌸",
+    "choices": [
+      { "id": "c1", "text": "Flower", "emoji": "🌺" },
+      { "id": "c2", "text": "Rock", "emoji": "🪨" },
+      { "id": "c3", "text": "Shoe", "emoji": "👟" }
+    ],
+    "correctAnswer": "Flower",
+    "hint": "It smells sweet and grows fragrant in garden soil.",
+    "explanation": "Beautiful! The butterfly rests gently upon the flower!"
+  },
+  {
+    "id": "q_l2_22",
+    "level": 2,
+    "skillId": "sentence_building",
+    "type": "quiz",
+    "title": "Counting to Twenty",
+    "question": "What number comes after nineteen when we count high?",
+    "promptAudioText": "What number comes after nineteen?",
+    "emoji": "2️⃣0️⃣",
+    "choices": [
+      { "id": "c1", "text": "Twenty", "emoji": "2️⃣0️⃣" },
+      { "id": "c2", "text": "Ten", "emoji": "🔟" },
+      { "id": "c3", "text": "Five", "emoji": "5️⃣" }
+    ],
+    "correctAnswer": "Twenty",
+    "hint": "Ten plus ten equals this big number!",
+    "explanation": "Hooray! Nineteen... Twenty! Super counting!"
+  },
+
   {
     "id": "q_l3_01",
     "level": 3,
@@ -566,5 +988,113 @@
     "correctAnswer": "Saturday",
     "hint": "Friday ends school, and Saturday starts the weekend fun!",
     "explanation": "Hurrah! Saturday is next, time for weekend playtime!"
+  },
+  {
+    "id": "q_l3_13",
+    "level": 3,
+    "skillId": "story_comprehension",
+    "type": "quiz",
+    "title": "Buster and the Snail",
+    "question": "Buster the puppy saw a snail crawling very slowly across the garden path. Buster watched patiently without barking. How was Buster behaving?",
+    "promptAudioText": "How was Buster behaving with the snail?",
+    "emoji": "🐌",
+    "choices": [
+      { "id": "c1", "text": "Patient and gentle", "emoji": "😇" },
+      { "id": "c2", "text": "Angry and shouting", "emoji": "😠" },
+      { "id": "c3", "text": "Scared and running", "emoji": "🏃" }
+    ],
+    "correctAnswer": "Patient and gentle",
+    "hint": "Buster waited calmly and watched with gentle care.",
+    "explanation": "Wonderful! Buster was calm, patient, and gentle!"
+  },
+  {
+    "id": "q_l3_14",
+    "level": 3,
+    "skillId": "descriptive_words",
+    "type": "quiz",
+    "title": "Opposite Size",
+    "question": "An elephant is enormous. What is a tiny ant?",
+    "promptAudioText": "What is the opposite of enormous for a tiny ant?",
+    "emoji": "🐜",
+    "choices": [
+      { "id": "c1", "text": "Tiny", "emoji": "🔬" },
+      { "id": "c2", "text": "Heavy", "emoji": "🏋️" },
+      { "id": "c3", "text": "Loud", "emoji": "📢" }
+    ],
+    "correctAnswer": "Tiny",
+    "hint": "Enormous means huge, and tiny means very, very small!",
+    "explanation": "Super! Enormous is big, and tiny is very small!"
+  },
+  {
+    "id": "q_l3_15",
+    "level": 3,
+    "skillId": "sequencing",
+    "type": "quiz",
+    "title": "Daily Routine",
+    "question": "What part of the day comes when the sun rises and we eat breakfast?",
+    "promptAudioText": "What part of the day comes when the sun rises?",
+    "emoji": "🌅",
+    "choices": [
+      { "id": "c1", "text": "Morning", "emoji": "🌄" },
+      { "id": "c2", "text": "Midnight", "emoji": "🌌" },
+      { "id": "c3", "text": "Evening", "emoji": "🌆" }
+    ],
+    "correctAnswer": "Morning",
+    "hint": "Good morning sunshine!",
+    "explanation": "Rise and shine! The morning starts the bright new day!"
+  },
+  {
+    "id": "q_l3_16",
+    "level": 3,
+    "skillId": "social_communication",
+    "type": "quiz",
+    "title": "Courageous Try",
+    "question": "When Toby felt nervous about riding his two-wheel bike, his dad held his hand and Toby pedaled forward. What did Toby show?",
+    "promptAudioText": "What did Toby show when he pedaled forward?",
+    "emoji": "🚲",
+    "choices": [
+      { "id": "c1", "text": "Courage", "emoji": "🦁" },
+      { "id": "c2", "text": "Sleepiness", "emoji": "😴" },
+      { "id": "c3", "text": "Silence", "emoji": "🤐" }
+    ],
+    "correctAnswer": "Courage",
+    "hint": "Trying something new even when a little nervous is being brave!",
+    "explanation": "Bravo! Toby showed courage and pedaled like a champion!"
+  },
+  {
+    "id": "q_l3_17",
+    "level": 3,
+    "skillId": "story_comprehension",
+    "type": "quiz",
+    "title": "Sammy's Acorn Stash",
+    "question": "Sammy the squirrel gathered five brown acorns under the oak tree. He hid them inside a hollow stump for winter. Where are the acorns hidden?",
+    "promptAudioText": "Where did Sammy hide his acorns?",
+    "emoji": "🐿️",
+    "choices": [
+      { "id": "c1", "text": "Inside a hollow stump", "emoji": "🪵" },
+      { "id": "c2", "text": "Under water in the lake", "emoji": "🌊" },
+      { "id": "c3", "text": "Inside a kitchen toaster", "emoji": "🍞" }
+    ],
+    "correctAnswer": "Inside a hollow stump",
+    "hint": "Look at the cozy tree wood stump Sammy found!",
+    "explanation": "Correct! Sammy hid his acorns inside the cozy hollow stump!"
+  },
+  {
+    "id": "q_l3_18",
+    "level": 3,
+    "skillId": "social_communication",
+    "type": "quiz",
+    "title": "Teamwork Castle",
+    "question": "When Maya and Toby build a tall block tower together without pushing, they are practicing...",
+    "promptAudioText": "Maya and Toby build a tower together. They are practicing...",
+    "emoji": "🏰",
+    "choices": [
+      { "id": "c1", "text": "Teamwork and sharing", "emoji": "🤝" },
+      { "id": "c2", "text": "Fighting", "emoji": "🥊" },
+      { "id": "c3", "text": "Sleeping alone", "emoji": "🛏️" }
+    ],
+    "correctAnswer": "Teamwork and sharing",
+    "hint": "Working together in friendship!",
+    "explanation": "Hooray! Teamwork and sharing make playtime wonderful!"
   }
 ]

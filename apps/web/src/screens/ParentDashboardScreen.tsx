@@ -193,10 +193,18 @@ export const ParentDashboardScreen: React.FC<ParentDashboardScreenProps> = ({
 
       {/* Skills Mastery Breakdown */}
       <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm mb-6">
-        <div className="flex items-center gap-2 mb-4">
-          <TrendingUp className="w-5 h-5 text-indigo-600" />
-          <h3 className="text-lg font-black text-slate-800">Skill Breakdown & Mastery</h3>
+        <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center gap-2">
+            <TrendingUp className="w-5 h-5 text-indigo-600" />
+            <h3 className="text-lg font-black text-slate-800">Skill Breakdown & Mastery</h3>
+          </div>
+          <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">
+            EMA α=0.35 Model
+          </span>
         </div>
+        <p className="text-xs text-slate-500 mb-4 leading-relaxed">
+          Estimated via Exponential Moving Average (<code className="bg-slate-100 px-1 py-0.5 rounded font-mono text-[11px] text-indigo-700">new = 0.35 × evidence + 0.65 × prior</code>) requiring ≥3 attempts. Mastery reflects observed activity performance rather than speed or innate ability.
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {summary.skillsBreakdown.map(skill => (

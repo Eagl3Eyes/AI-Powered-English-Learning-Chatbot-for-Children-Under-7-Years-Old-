@@ -76,8 +76,8 @@ apiRouter.post('/chat', async (req: Request, res: Response) => {
   }
 });
 
-// 3. Learning Progress
-apiRouter.get('/progress/:learnerId', (req: Request, res: Response) => {
+// 3. Learning Progress (both /learners/:learnerId/progress and /progress/:learnerId)
+const getProgressHandler = (req: Request, res: Response) => {
   const { learnerId } = req.params;
   const progress = storage.getProgress(learnerId);
   const learner = storage.getLearner(learnerId);
@@ -86,10 +86,12 @@ apiRouter.get('/progress/:learnerId', (req: Request, res: Response) => {
     progress,
     learner
   });
-});
+};
+apiRouter.get('/progress/:learnerId', getProgressHandler);
+apiRouter.get('/learners/:learnerId/progress', getProgressHandler);
 
-// 4. Learning Levels
-apiRouter.get('/learning/levels', (_req: Request, res: Response) => {
+// 4. Curriculum Endpoints
+const getLevelsHandler = (_req: Request, res: Response) => {
   res.status(200).json({
     levels: [
       {
@@ -115,6 +117,29 @@ apiRouter.get('/learning/levels', (_req: Request, res: Response) => {
       }
     ]
   });
+};
+apiRouter.get('/learning/levels', getLevelsHandler);
+apiRouter.get('/curriculum/levels', getLevelsHandler);
+
+apiRouter.get('/curriculum/skills', (req: Request, res: Response) => {
+  const level = req.query.level ? (Number(req.query.level) as LearningLevel) : undefined;
+  const skills = contentService.getSkills(level);
+  res.status(200).json({
+    count: skills.length,
+    skills
+  });
+});
+
+apiRouter.get('/curriculum/prerequisites', (_req: Request, res: Response) => {
+  const skills = contentService.getSkills();
+  const graph = skills.map(s => ({
+    id: s.id,
+    name: s.name,
+    level: s.level,
+    prerequisites: s.prerequisites,
+    masteryThreshold: s.masteryThreshold
+  }));
+  res.status(200).json({ graph });
 });
 
 // 5. Next Activity
@@ -127,9 +152,10 @@ apiRouter.get('/activities/next', (req: Request, res: Response) => {
   res.status(200).json(activity);
 });
 
-// 6. Submit Activity Answer
-apiRouter.post('/activities/answer', (req: Request, res: Response) => {
-  const { learnerId, activityId, answer, usedHint } = req.body;
+// 6. Submit Activity Answer / Attempt
+const submitAnswerHandler = (req: Request, res: Response) => {
+  const activityId = req.params.id || req.body.activityId;
+  const { learnerId, answer, usedHint } = req.body;
 
   if (!learnerId || !activityId || answer === undefined) {
     res.status(400).json({ error: 'learnerId, activityId, and answer are required' });
@@ -147,7 +173,9 @@ apiRouter.post('/activities/answer', (req: Request, res: Response) => {
   } catch (err: any) {
     res.status(404).json({ error: err.message });
   }
-});
+};
+apiRouter.post('/activities/answer', submitAnswerHandler);
+apiRouter.post('/activities/:id/attempts', submitAnswerHandler);
 
 // 7. Feelings Check-in (SEL direct endpoint)
 apiRouter.post('/sel/checkin', (req: Request, res: Response) => {
@@ -162,11 +190,13 @@ apiRouter.post('/sel/checkin', (req: Request, res: Response) => {
 });
 
 // 8. Parent / Teacher Summary
-apiRouter.get('/parent/summary/:learnerId', (req: Request, res: Response) => {
+const getParentSummaryHandler = (req: Request, res: Response) => {
   const { learnerId } = req.params;
   const summary = learningEngineService.getParentSummary(learnerId);
   res.status(200).json(summary);
-});
+};
+apiRouter.get('/parent/summary/:learnerId', getParentSummaryHandler);
+apiRouter.get('/parent/learners/:learnerId/summary', getParentSummaryHandler);
 
 // 9. Reset Learner Progress (Parent action)
 apiRouter.post('/learners/:learnerId/reset', (req: Request, res: Response) => {
@@ -181,6 +211,15 @@ apiRouter.delete('/learners/:learnerId/data', (req: Request, res: Response) => {
   const { learnerId } = req.params;
   storage.deleteLearnerData(learnerId);
   res.status(200).json({ message: 'All learner data permanently deleted' });
+});
+
+// 11. Health & Readiness Checks
+apiRouter.get('/ready', (_req: Request, res: Response) => {
+  res.status(200).json({
+    status: 'ready',
+    timestamp: new Date().toISOString(),
+    contentLoaded: contentService.getSkills().length > 0
+  });
 });
 
 // 11. Health Check

@@ -1,0 +1,130 @@
+[
+  {
+    "id": "conv_01",
+    "theme": "favorite_animal",
+    "triggerPhrases": ["favorite animal", "do you like dogs", "do you like cats", "animals"],
+    "level": 1,
+    "botResponse": "I love fluffy puppies and cute kittens! 🐶 🐱 Do you have a favorite animal friend?",
+    "suggestedReplies": ["I love puppies!", "I love cats!", "I love birds!"]
+  },
+  {
+    "id": "conv_02",
+    "theme": "favorite_color",
+    "triggerPhrases": ["favorite color", "what color do you like", "colors"],
+    "level": 1,
+    "botResponse": "My favorite colors are sunshine yellow and sky blue! ☀️ What color makes you feel happy?",
+    "suggestedReplies": ["Yellow like the sun!", "Blue like the ocean!", "Red like strawberries!"]
+  },
+  {
+    "id": "conv_03",
+    "theme": "identity_pip",
+    "triggerPhrases": ["who are you", "what is your name", "who made you", "are you real"],
+    "level": 1,
+    "botResponse": "I'm Pip! 🦉 A cheerful owl companion here to share English words and happy smiles with you!",
+    "suggestedReplies": ["Hi Pip!", "Nice to meet you!", "Tell me a story!"]
+  },
+  {
+    "id": "conv_04",
+    "theme": "sharing_toys",
+    "triggerPhrases": ["playing with toys", "i have a toy", "my blocks", "teddy bear"],
+    "level": 1,
+    "botResponse": "Playing with toys is so much fun! Building tall towers or rolling balls is an awesome way to play!",
+    "suggestedReplies": ["I build block towers!", "I bounce my ball!", "I hug my teddy!"]
+  },
+  {
+    "id": "conv_05",
+    "theme": "weather_talk",
+    "triggerPhrases": ["raining outside", "it is sunny", "weather", "it is hot", "it is cold"],
+    "level": 2,
+    "botResponse": "The weather outside changes like magic! When it's sunny, we play outdoors, and when it rains, we splash in boots! 🌧️ ☀️",
+    "suggestedReplies": ["It is sunny today!", "It is rainy today!", "I like jumping in puddles!"]
+  },
+  {
+    "id": "conv_06",
+    "theme": "favorite_food",
+    "triggerPhrases": ["i am hungry", "i ate pancakes", "ice cream", "pizza", "favorite food"],
+    "level": 2,
+    "botResponse": "Mmm, yummy! Eating delicious food gives us super energy to run and learn! What tasty treat do you like best?",
+    "suggestedReplies": ["Pancakes with berries!", "Crunchy apples!", "Fresh toast bread!"]
+  },
+  {
+    "id": "conv_07",
+    "theme": "bedtime_routine",
+    "triggerPhrases": ["going to bed", "sleepy", "bedtime", "brushing teeth"],
+    "level": 2,
+    "botResponse": "Bedtime is so cozy! Brushing our teeth and snuggling in warm quilts helps our brains rest and dream sweet dreams. 🌙",
+    "suggestedReplies": ["I brush my teeth!", "Read me a story!", "Goodnight Pip!"]
+  },
+  {
+    "id": "conv_08",
+    "theme": "kindergarten_school",
+    "triggerPhrases": ["my school", "kindergarten", "preschool", "my teacher"],
+    "level": 2,
+    "botResponse": "School is a wonderful place to make friends, paint colorful pictures, and discover new ideas! What is your favorite part?",
+    "suggestedReplies": ["Recess and swings!", "Painting pictures!", "Storytime circle!"]
+  },
+  {
+    "id": "conv_09",
+    "theme": "superpowers",
+    "triggerPhrases": ["superhero", "superpower", "i can fly", "magic"],
+    "level": 3,
+    "botResponse": "If you could have any magical superpower for a day, would you fly high like an eagle or run swift like a cheetah? 🦅 🐆",
+    "suggestedReplies": ["Fly high in the sky!", "Run swift like a cheetah!", "Make everyone smile!"]
+  },
+  {
+    "id": "conv_10",
+    "theme": "curious_questions",
+    "triggerPhrases": ["why is the sky blue", "why do birds sing", "why", "how does it work"],
+    "level": 3,
+    "botResponse": "What a curious question! The sunlight scatters through the air, painting the blue sky just like watercolor paint on paper! 🎨",
+    "suggestedReplies": ["That is so neat!", "Tell me another fact!", "Let's explore more!"]
+  },
+  {
+    "id": "conv_11",
+    "theme": "helping_others",
+    "triggerPhrases": ["i helped mom", "i helped dad", "cleaning up", "helping"],
+    "level": 3,
+    "botResponse": "Helping at home is an amazing act of kindness! Picking up toys and being helpful makes the whole family smile. 💖",
+    "suggestedReplies": ["I put my toys away!", "I set the table!", "I like helping!"]
+  },
+  {
+    "id": "conv_12",
+    "theme": "nature_exploring",
+    "triggerPhrases": ["in the park", "in the forest", "walking outside", "found a bug"],
+    "level": 3,
+    "botResponse": "Nature is filled with tiny miracles: shiny green beetles, busy ants, and fragrant blossoms! What did you observe today?",
+    "suggestedReplies": ["A buzzing bumblebee!", "A colorful leaf!", "Smooth river pebbles!"]
+  },
+  {
+    "id": "conv_13",
+    "theme": "music_rhythm",
+    "triggerPhrases": ["listening to music", "dance with me", "song", "drums"],
+    "level": 2,
+    "botResponse": "Music makes our feet tap and our spirits soar! Let's clap our hands to a happy beat: clap, clap, clap! 👏",
+    "suggestedReplies": ["Clap clap clap!", "Let's dance!", "Play a song!"]
+  },
+  {
+    "id": "conv_14",
+    "theme": "friendship_stories",
+    "triggerPhrases": ["my best friend", "playing tag", "sharing a swing", "friends"],
+    "level": 3,
+    "botResponse": "Having a caring friend is like having sunshine on a cloudy day. What fun game do you and your friend love to play?",
+    "suggestedReplies": ["We play tag!", "We build sandcastles!", "We draw together!"]
+  },
+  {
+    "id": "conv_15",
+    "theme": "outer_space",
+    "triggerPhrases": ["rocket ship", "planets", "astronaut", "outer space"],
+    "level": 3,
+    "botResponse": "3... 2... 1... Blastoff! 🚀 Outer space is full of spinning planets, glowing comets, and endless twinkling stars!",
+    "suggestedReplies": ["Zoom to the moon!", "Look for shooting stars!", "Float in zero gravity!"]
+  },
+  {
+    "id": "conv_16",
+    "theme": "celebrating_growth",
+    "triggerPhrases": ["i learned a new word", "i am growing up", "look what i did", "practice"],
+    "level": 2,
+    "botResponse": "Look at you grow! Every day you practice, your English blossoms like a flower in the sunshine! I am so proud of you! ⭐",
+    "suggestedReplies": ["I love learning!", "Give me high five!", "Let's do another!"]
+  }
+]

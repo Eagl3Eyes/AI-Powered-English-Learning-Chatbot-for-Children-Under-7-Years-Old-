@@ -154,25 +154,42 @@ export class ConversationOrchestratorService {
     let quickReplies: string[] = [];
     let usedFallback = true;
     let provider = 'deterministic-engine';
+    let selectionRationale = 'Standard interaction';
 
     if (modeResult.mode === 'LEARNING') {
-      nextActivity = contentService.getNextActivityForLearner(learner.level);
+      const masteredSkills = Object.keys(progress.skills).filter(k => progress.skills[k]?.mastered);
+      nextActivity = contentService.getNextActivityForLearner(learner.level, [], undefined, masteredSkills);
       session.currentActivityId = nextActivity.id;
       companionMessage = `Ready for a fun challenge? ${nextActivity.question}`;
       quickReplies = nextActivity.choices ? nextActivity.choices.map(c => c.text) : ['Yes!', 'Give me a hint'];
+      selectionRationale = `Adaptive selection for skill ${nextActivity.skillId} (Prerequisites verified)`;
     } else if (modeResult.mode === 'SUPPORT') {
       const frustration = selService.getFrustrationRecoveryPrompt();
       companionMessage = frustration.response;
       quickReplies = frustration.quickReplies;
+      selectionRationale = 'Support mode activated to reduce cognitive load and reassure learner';
     } else if (modeResult.mode === 'ENGAGEMENT') {
       companionMessage = "Would you like to hear a funny animal story, do a quick star dance, or take a little rest?";
       quickReplies = ['Hear a fun story', 'Let’s dance!', 'Take a break'];
+      selectionRationale = 'Engagement break offered due to disengagement signals';
     } else if (modeResult.mode === 'IDLE') {
       companionMessage = `Hi ${learner.nickname}! 🦉 I'm Pip, your English companion! Are you ready to explore some fun words together?`;
       quickReplies = ["Let's learn!", 'How are you feeling?', 'Tell me a story'];
+      selectionRationale = 'Session greeting and warm icebreaker';
     } else {
-      // CONVERSATION Mode: Attempt LLM first if available, with deterministic fallback
-      if (llmProviderService.isAvailable()) {
+      // CONVERSATION Mode: First check structured conversation scenarios
+      const convScenarios = contentService.getConversations();
+      const matchedScenario = convScenarios.find(s =>
+        s.triggerPhrases.some(phrase => safetyCheck.sanitizedMessage.toLowerCase().includes(phrase))
+      );
+
+      if (matchedScenario) {
+        companionMessage = matchedScenario.botResponse;
+        quickReplies = matchedScenario.suggestedReplies;
+        usedFallback = true;
+        provider = 'conversation-scenario-engine';
+        selectionRationale = `Matched conversational theme: ${matchedScenario.theme}`;
+      } else if (llmProviderService.isAvailable()) {
         const systemPrompt = `You are Pip, a gentle, cheerful English-teaching companion for a child aged 3-6 at Level ${learner.level}. Use simple vocabulary, high warmth, short sentences (maximum 2 sentences). Praise curiosity. Never use scary words, sarcasm, or complex grammar. Encourage learning English happily.`;
         const llmResponse = await llmProviderService.generateChildResponse({
           systemPrompt,
@@ -185,17 +202,21 @@ export class ConversationOrchestratorService {
           companionMessage = safetyService.validateOutput(llmResponse.content, learner.level);
           usedFallback = false;
           provider = llmResponse.provider;
+          selectionRationale = `Generated via ${llmResponse.provider} with child guardrail validation`;
         }
       }
 
-      // Fallback if LLM was unavailable or timed out
+      // Final fallback if LLM was unavailable or timed out
       if (!companionMessage) {
         companionMessage = this.generateDeterministicConversation(safetyCheck.sanitizedMessage, learner.level);
         usedFallback = true;
         provider = 'deterministic-fallback';
+        selectionRationale = 'Generated via deterministic child dialogue fallback';
       }
 
-      quickReplies = ["Let's learn a word!", 'Tell me a secret story', 'How do you feel?'];
+      if (quickReplies.length === 0) {
+        quickReplies = ["Let's learn a word!", 'Tell me an animal story', 'How do you feel?'];
+      }
     }
 
     // Save turn to session

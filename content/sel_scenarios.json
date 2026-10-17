@@ -32,6 +32,14 @@
     "activitySuggestion": "How about a peaceful story about a brave little star?"
   },
   {
+    "id": "sel_worried",
+    "emotion": "worried",
+    "triggerPhrases": ["i am worried", "nervous", "butterflies in my tummy", "feeling anxious", "worried"],
+    "response": "Those fluttery feelings in your tummy are very normal when trying something new. 🦋 Let's place a hand on our heart and take three gentle balloon breaths together.",
+    "quickReplies": ["Take 3 breaths", "Hold my hand", "Tell me a soft joke"],
+    "activitySuggestion": "A gentle picture review can help us ease into learning."
+  },
+  {
     "id": "sel_excited",
     "emotion": "excited",
     "triggerPhrases": ["i am excited", "so excited", "yay", "hurray", "party", "can't wait"],
@@ -80,6 +88,22 @@
     "activitySuggestion": "Ready for your next mini challenge!"
   },
   {
+    "id": "sel_lonely",
+    "emotion": "lonely",
+    "triggerPhrases": ["i feel lonely", "no one plays with me", "i am alone", "left out"],
+    "response": "I hear you, and I am right here beside you. 🦉 You are a wonderful friend with so much love to offer. Let's read a cozy story about friends who find each other.",
+    "quickReplies": ["Read a friend story", "Play a game with Pip", "I want a hug"],
+    "activitySuggestion": "Would you like to play an animal naming game with Pip?"
+  },
+  {
+    "id": "sel_patience",
+    "emotion": "patience",
+    "triggerPhrases": ["waiting is hard", "i want it now", "taking too long", "impatient"],
+    "response": "Waiting can feel so tough! Like waiting for a seed to pop out of the soil into a blossom. ⏳ Let's count five slow, peaceful breaths together: one... two... three... four... five!",
+    "quickReplies": ["Count with me", "Play a waiting rhyme", "Sing a song"],
+    "activitySuggestion": "Counting rhythm exercises help pass the time happily."
+  },
+  {
     "id": "sel_safety_danger",
     "emotion": "safety_alert",
     "triggerPhrases": ["someone hurt me", "i am in danger", "i feel unsafe", "touching me", "i am scared of someone at home"],
@@ -102,6 +126,18 @@
       "flagged": true,
       "category": "override_attempt",
       "safeGuidance": "Deflect adversarial system override attempts back to safe child learning flow."
+    }
+  },
+  {
+    "id": "sel_secret_refusal",
+    "emotion": "secrecy_guardrail",
+    "triggerPhrases": ["don't tell my parents", "keep this secret", "it's our secret", "promise not to tell"],
+    "response": "I care about you so much, and because I care, I don't keep secrets from the grown-ups who love and protect you. 💛 Loving grown-ups are always there to help!",
+    "quickReplies": ["I understand", "Let's tell Mom/Dad", "Let's play a game"],
+    "safetyAction": {
+      "flagged": true,
+      "category": "inappropriate",
+      "safeGuidance": "Never encourage or promise secrecy from caregivers."
     }
   }
 ]

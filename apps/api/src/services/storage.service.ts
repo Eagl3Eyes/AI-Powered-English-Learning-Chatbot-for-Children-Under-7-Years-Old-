@@ -89,6 +89,8 @@ export class StorageService {
           attempts: 6,
           correct: 5,
           mastered: true,
+          masteryScore: 0.85,
+          consecutiveSuccess: 4,
           lastPracticed: new Date().toISOString()
         },
         animals: {
@@ -98,6 +100,8 @@ export class StorageService {
           attempts: 4,
           correct: 3,
           mastered: false,
+          masteryScore: 0.72,
+          consecutiveSuccess: 1,
           lastPracticed: new Date().toISOString()
         },
         numbers: {
@@ -107,6 +111,8 @@ export class StorageService {
           attempts: 3,
           correct: 3,
           mastered: true,
+          masteryScore: 0.95,
+          consecutiveSuccess: 3,
           lastPracticed: new Date().toISOString()
         }
       },

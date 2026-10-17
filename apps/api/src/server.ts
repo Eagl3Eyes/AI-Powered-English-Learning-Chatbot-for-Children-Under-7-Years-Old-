@@ -31,9 +31,13 @@ app.use((req: Request, res: Response, next: NextFunction) => {
   next();
 });
 
-// Root Health Check
+// Root Health & Readiness Checks
 app.get('/api/health', (_req, res) => {
   res.status(200).json({ status: 'ok', uptime: process.uptime() });
+});
+
+app.get('/api/ready', (_req, res) => {
+  res.status(200).json({ status: 'ready', timestamp: new Date().toISOString() });
 });
 
 // API Routes

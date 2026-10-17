@@ -49,8 +49,13 @@ describe('English Learning Chatbot - Comprehensive Test Suite', () => {
     it('advancement requires meeting mastery rules (≥80% accuracy, minimum questions, ≥2 sessions)', () => {
       const progress = storage.getProgress(testLearnerId);
       progress.totalAttempts = 15;
-      progress.totalCorrect = 13; // 86.6% accuracy
+      progress.totalCorrect = 13;
       progress.sessionsCount = 2;
+      progress.skills = {
+        colors: { skillId: 'colors', skillName: 'Colors', level: 1, attempts: 5, correct: 5, mastered: true, masteryScore: 0.9, consecutiveSuccess: 5, lastPracticed: new Date().toISOString() },
+        numbers: { skillId: 'numbers', skillName: 'Numbers', level: 1, attempts: 5, correct: 5, mastered: true, masteryScore: 0.9, consecutiveSuccess: 5, lastPracticed: new Date().toISOString() },
+        greetings: { skillId: 'greetings', skillName: 'Greetings', level: 1, attempts: 5, correct: 4, mastered: true, masteryScore: 0.85, consecutiveSuccess: 4, lastPracticed: new Date().toISOString() }
+      };
 
       const check = learningEngineService.checkLevelProgression(progress);
       expect(check.readyForNextLevel).toBe(true);

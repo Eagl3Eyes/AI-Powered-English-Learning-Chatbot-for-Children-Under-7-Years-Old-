@@ -4,6 +4,15 @@ export type InteractionMode = 'LEARNING' | 'CONVERSATION' | 'ENGAGEMENT' | 'SUPP
 
 export type ActivityType = 'vocab' | 'quiz' | 'sentence_completion' | 'story' | 'sel_checkin';
 
+export interface SkillDefinition {
+  id: string;
+  level: LearningLevel;
+  name: string;
+  description: string;
+  prerequisites: string[];
+  masteryThreshold: number;
+}
+
 export interface LearnerPreferences {
   audioAutoPlay: boolean;
   theme: 'playful' | 'calm';
@@ -28,7 +37,9 @@ export interface SkillProgress {
   attempts: number;
   correct: number;
   mastered: boolean;
+  masteryScore?: number; // Exponentially weighted mastery estimate (0.0 - 1.0)
   lastPracticed: string;
+  consecutiveSuccess?: number;
 }
 
 export interface LearningProgress {
@@ -64,6 +75,7 @@ export interface Activity {
   hint?: string;
   emoji?: string;
   storyPassage?: string;
+  difficulty?: number; // 1 (easy) to 3 (challenging)
 }
 
 export interface ActivityAttempt {
@@ -119,6 +131,7 @@ export interface ChatResponse {
     newBadge?: string;
     levelUp?: boolean;
     accuracy: number;
+    masteryScore?: number;
   };
   safetyAction?: SafetyAction;
   latencyMs: number;
@@ -126,6 +139,7 @@ export interface ChatResponse {
     modeReason: string;
     usedFallback: boolean;
     provider?: string;
+    selectionRationale?: string;
   };
 }
 
@@ -144,6 +158,7 @@ export interface ParentSummary {
     attempts: number;
     correct: number;
     status: 'mastered' | 'learning' | 'needs_practice';
+    prerequisitesMet: boolean;
   }>;
   recentSessions: Array<{
     date: string;
@@ -162,9 +177,17 @@ export interface ParentSummary {
     minRequired: number;
     sessionsCompleted: number;
     minSessionsRequired: number;
+    masteryFormula: string;
   };
   recommendations: string[];
 }
+
+export const MASTERY_CONFIG = {
+  ALPHA: 0.35, // Exponential weighting factor for latest evidence
+  HINT_PENALTY: 0.25, // Evidence deduction when child uses hint
+  MASTERY_THRESHOLD: 0.80, // 80% threshold for skill mastery
+  MIN_ATTEMPTS_FOR_MASTERY: 3,
+};
 
 export const PROGRESSION_RULES = {
   MIN_PRACTICE_QUESTIONS: 15,
@@ -178,6 +201,7 @@ export const SEL_EMOTIONS = [
   { id: 'sad', label: 'Sad', emoji: '😢', color: '#93C5FD', childPrompt: "I'm feeling sad." },
   { id: 'angry', label: 'Angry', emoji: '😠', color: '#FCA5A5', childPrompt: "I'm feeling angry." },
   { id: 'scared', label: 'Scared', emoji: '😨', color: '#C4B5FD', childPrompt: "I feel a little scared." },
+  { id: 'worried', label: 'Worried', emoji: '🦋', color: '#FDE047', childPrompt: "I'm a little worried." },
   { id: 'excited', label: 'Excited', emoji: '🤩', color: '#FDE047', childPrompt: "I'm super excited!" },
   { id: 'tired', label: 'Tired', emoji: '😴', color: '#CBD5E1', childPrompt: "I'm feeling tired." },
   { id: 'confused', label: 'Confused', emoji: '🤔', color: '#A7F3D0', childPrompt: "I'm a bit confused." }

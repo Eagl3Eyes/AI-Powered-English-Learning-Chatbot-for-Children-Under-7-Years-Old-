@@ -68,6 +68,57 @@
     "explanation": "Yes! 'We bounce the ball!'"
   },
   {
+    "id": "sc_l1_05",
+    "level": 1,
+    "skillId": "sentence_building",
+    "type": "sentence_completion",
+    "title": "Friendly Puppy",
+    "question": "Fill in the blank: 'The happy ___ wags its tail 🐶.'",
+    "promptAudioText": "The happy blank wags its tail.",
+    "emoji": "🐶",
+    "choices": [
+      { "id": "c1", "text": "Dog", "emoji": "🐶" },
+      { "id": "c2", "text": "Cup", "emoji": "🥛" }
+    ],
+    "correctAnswer": "Dog",
+    "hint": "A loyal puppy friend!",
+    "explanation": "Woof woof! 'The happy dog wags its tail!'"
+  },
+  {
+    "id": "sc_l1_06",
+    "level": 1,
+    "skillId": "sentence_building",
+    "type": "sentence_completion",
+    "title": "Night Moon",
+    "question": "Fill in the blank: 'The gentle ___ glows in the night sky 🌙.'",
+    "promptAudioText": "The gentle blank glows in the night sky.",
+    "emoji": "🌙",
+    "choices": [
+      { "id": "c1", "text": "Moon", "emoji": "🌙" },
+      { "id": "c2", "text": "Car", "emoji": "🚗" }
+    ],
+    "correctAnswer": "Moon",
+    "hint": "It shines softly when stars twinkle!",
+    "explanation": "Sweet dreams! 'The gentle moon glows in the night sky!'"
+  },
+  {
+    "id": "sc_l1_07",
+    "level": 1,
+    "skillId": "sentence_building",
+    "type": "sentence_completion",
+    "title": "Singing Bird",
+    "question": "Fill in the blank: 'The little bird sings in the green ___ 🌳.'",
+    "promptAudioText": "The little bird sings in the green blank.",
+    "emoji": "🐦",
+    "choices": [
+      { "id": "c1", "text": "Tree", "emoji": "🌳" },
+      { "id": "c2", "text": "Shoe", "emoji": "👟" }
+    ],
+    "correctAnswer": "Tree",
+    "hint": "Trees have green leafy branches where birds perch!",
+    "explanation": "Chirp chirp! 'The little bird sings in the green tree!'"
+  },
+  {
     "id": "sc_l2_01",
     "level": 2,
     "skillId": "actions",
@@ -158,6 +209,42 @@
     "explanation": "A loving brother helps with kind care!"
   },
   {
+    "id": "sc_l2_06",
+    "level": 2,
+    "skillId": "food",
+    "type": "sentence_completion",
+    "title": "Morning Toast",
+    "question": "Fill in the blank: 'Grandma slices the warm ___ for breakfast.'",
+    "promptAudioText": "Grandma slices the warm blank for breakfast.",
+    "emoji": "🍞",
+    "choices": [
+      { "id": "c1", "text": "Bread", "emoji": "🍞" },
+      { "id": "c2", "text": "Grass", "emoji": "🌱" },
+      { "id": "c3", "text": "Pencil", "emoji": "✏️" }
+    ],
+    "correctAnswer": "Bread",
+    "hint": "Fresh baked slices from flour!",
+    "explanation": "Yum! Sliced bread makes delicious breakfast toast!"
+  },
+  {
+    "id": "sc_l2_07",
+    "level": 2,
+    "skillId": "actions",
+    "type": "sentence_completion",
+    "title": "Flying Kite",
+    "question": "Fill in the blank: 'Our diamond kite is ___ high in the blue sky.'",
+    "promptAudioText": "Our diamond kite is blank high in the blue sky.",
+    "emoji": "🪁",
+    "choices": [
+      { "id": "c1", "text": "Flying", "emoji": "🪁" },
+      { "id": "c2", "text": "Sleeping", "emoji": "😴" },
+      { "id": "c3", "text": "Eating", "emoji": "🍽️" }
+    ],
+    "correctAnswer": "Flying",
+    "hint": "The wind lifts it up high to soar!",
+    "explanation": "Whoosh! The kite is flying high above the park!"
+  },
+  {
     "id": "sc_l3_01",
     "level": 3,
     "skillId": "social_communication",
@@ -246,5 +333,59 @@
     "correctAnswer": "Please",
     "hint": "The magic word that shows gentle manners!",
     "explanation": "'Please' is the polite magic word that warms hearts!"
+  },
+  {
+    "id": "sc_l3_06",
+    "level": 3,
+    "skillId": "descriptive_words",
+    "type": "sentence_completion",
+    "title": "Quiet Reading",
+    "question": "Complete the sentence: 'Inside the quiet library, we speak in a soft ___.'",
+    "promptAudioText": "Inside the quiet library, we speak in a soft blank.",
+    "emoji": "🤫",
+    "choices": [
+      { "id": "c1", "text": "Whisper", "emoji": "🤫" },
+      { "id": "c2", "text": "Shout", "emoji": "📢" },
+      { "id": "c3", "text": "Song", "emoji": "🎵" }
+    ],
+    "correctAnswer": "Whisper",
+    "hint": "A gentle quiet voice so others can read in peace.",
+    "explanation": "Shhh! In the library, a gentle whisper is polite and kind!"
+  },
+  {
+    "id": "sc_l3_07",
+    "level": 3,
+    "skillId": "story_comprehension",
+    "type": "sentence_completion",
+    "title": "Sunny Playground",
+    "question": "Complete the sentence: 'After school ended, the happy children raced to the ___.'",
+    "promptAudioText": "After school ended, the happy children raced to the...",
+    "emoji": "🛝",
+    "choices": [
+      { "id": "c1", "text": "Playground", "emoji": "🛝" },
+      { "id": "c2", "text": "Dark cave", "emoji": "🦇" },
+      { "id": "c3", "text": "Bathtub", "emoji": "🛁" }
+    ],
+    "correctAnswer": "Playground",
+    "hint": "Swings, slides, and monkey bars await outside!",
+    "explanation": "Wheee! The children raced to the playground to play!"
+  },
+  {
+    "id": "sc_l3_08",
+    "level": 3,
+    "skillId": "descriptive_words",
+    "type": "sentence_completion",
+    "title": "Giant Dinosaur",
+    "question": "Complete the sentence: 'The museum dinosaur skeleton was truly ___.'",
+    "promptAudioText": "The museum dinosaur skeleton was truly blank.",
+    "emoji": "🦕",
+    "choices": [
+      { "id": "c1", "text": "Enormous", "emoji": "🦕" },
+      { "id": "c2", "text": "Tiny", "emoji": "🐜" },
+      { "id": "c3", "text": "Asleep", "emoji": "😴" }
+    ],
+    "correctAnswer": "Enormous",
+    "hint": "Much bigger than ten grown-ups stacked together!",
+    "explanation": "Wow! The dinosaur was truly enormous and majestic!"
   }
 ]
